@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>玄境拾光｜風水命理顧問 姓名學・流年財運・風水・紫微斗數</title>
+    <meta name="description" content="玄境拾光提供專業風水命理顧問服務，包含姓名學、流年財運、風水、紫微斗數、奇門遁甲等，幫助您看見人生藍圖。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1A2D20;
+            --navy-light: #243D2C;
+            --gold: #C4975A;
+            --gold-light: #E8D5B0;
+            --cream: #F8FAF8;
+            --bg-alt: #EDF2ED;
+            --text: #1C1C1C;
+            --text-light: #5A6A5A;
+            --white: #FFFFFF;
+            --border: #D6E0D6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            color: var(--text);
+            background: var(--cream);
+            line-height: 1.7;
+        }
+
+        /* ── Navigation ── */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 16px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(26, 45, 32, 0.96);
+            backdrop-filter: blur(10px);
+            transition: box-shadow 0.3s, padding 0.3s;
+        }
+
+        nav.scrolled {
+            box-shadow: 0 4px 24px rgba(0,0,0,0.35);
+            padding: 10px 40px;
+        }
+
+        .nav-logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--gold); }
+
+        .nav-cta {
+            background: var(--gold) !important;
+            color: var(--navy) !important;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-weight: 500 !important;
+        }
+
+        .nav-cta:hover { background: var(--gold-light) !important; }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--white);
+            display: block;
+            transition: all 0.3s;
+        }
+
+        /* ── Shared ── */
+        section { padding: 72px 40px; }
+
+        .container { max-width: 1100px; margin: 0 auto; }
+
+        .section-label {
+            font-size: 12px;
+            letter-spacing: 4px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.4;
+            margin-bottom: 16px;
+        }
+
+        .section-desc {
+            font-size: 15px;
+            color: var(--text-light);
+            line-height: 1.9;
+        }
+
+        .divider {
+            width: 48px;
+            height: 2px;
+            background: var(--gold);
+            margin: 20px 0 40px;
+        }
+
+        /* ── Hero ── */
+        #hero {
+            min-height: 100vh;
+            background: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 120px 80px 80px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 15% 25%, rgba(196,151,90,0.10) 0%, transparent 55%),
+                radial-gradient(circle at 85% 75%, rgba(196,151,90,0.06) 0%, transparent 55%);
+        }
+
+        #stars-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 540px;
+            flex-shrink: 0;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(196,151,90,0.12);
+            border: 1px solid rgba(196,151,90,0.35);
+            color: var(--gold);
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            letter-spacing: 3px;
+            margin-bottom: 32px;
+        }
+
+        .hero-title {
+            font-family: 'Noto Serif TC', serif;
+            font-size: clamp(52px, 8vw, 88px);
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 10px;
+            line-height: 1.15;
+            margin-bottom: 14px;
+        }
+
+        .hero-subtitle {
+            font-size: 15px;
+            color: rgba(232,213,176,0.75);
+            letter-spacing: 3px;
+            margin-bottom: 32px;
+        }
+
+        .hero-quote {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 20px;
+            color: var(--gold-light);
+            padding-left: 20px;
+            border-left: 2px solid var(--gold);
+            margin-bottom: 52px;
+            line-height: 1.8;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 14px 32px;
+            border-radius: 4px;
+            font-size: 15px;
+            font-weight: 500;
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: background 0.2s;
+        }
+
+        .btn-primary:hover { background: var(--gold-light); }
+
+        .btn-outline {
+            border: 1px solid rgba(196,151,90,0.5);
+            color: var(--gold-light);
+            padding: 14px 32px;
+            border-radius: 4px;
+            font-size: 15px;
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: all 0.2s;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* ── About ── */
+        #about { background: var(--cream); }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.6fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-photo-wrap {
+            position: relative;
+        }
+
+        .about-photo-wrap::before {
+            content: '';
+            position: absolute;
+            top: -24px; left: -24px; right: -24px; bottom: -24px;
+            border: 1px solid rgba(196,151,90,0.2);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .about-photo-wrap::after {
+            content: '';
+            position: absolute;
+            top: -12px; left: -12px; right: -12px; bottom: -12px;
+            border: 1px dashed rgba(196,151,90,0.12);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .about-photo {
+            aspect-ratio: 3/4;
+            background: var(--bg-alt);
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-photo::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+        }
+
+        .photo-placeholder {
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .photo-placeholder .icon {
+            font-size: 52px;
+            display: block;
+            margin-bottom: 12px;
+            opacity: 0.3;
+        }
+
+        .photo-placeholder p {
+            font-size: 13px;
+            letter-spacing: 1px;
+            opacity: 0.5;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.95;
+            font-size: 15px;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+        }
+
+        .stat-item { text-align: center; }
+
+        .stat-num {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 34px;
+            font-weight: 700;
+            color: var(--navy);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-light);
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        /* ── Services ── */
+        #services { background: var(--bg-alt); }
+
+        .services-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 56px;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .services-grid {
+            align-items: stretch;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 36px 28px;
+            border-radius: 2px;
+            border: 1px solid var(--border);
+            transition: all 0.25s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.07);
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(196,151,90,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .service-name {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .service-desc {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.85;
+            margin-bottom: 28px;
+            flex: 1;
+        }
+
+        .service-price {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .service-price span {
+            font-size: 13px;
+            font-family: 'Noto Sans TC', sans-serif;
+            font-weight: 400;
+            color: var(--text-light);
+        }
+
+        /* ── Process ── */
+        #process { background: var(--navy); }
+
+        #process .section-title { color: var(--white); }
+        #process .section-label { color: var(--gold); }
+        #process .section-desc { color: rgba(255,255,255,0.55); }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            margin-top: 56px;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 27px;
+            left: 14%;
+            right: 14%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(196,151,90,0.6), rgba(196,151,90,0.6), transparent);
+        }
+
+        .process-step { text-align: center; padding: 0 16px; }
+
+        .step-num {
+            width: 56px;
+            height: 56px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Noto Serif TC', serif;
+            font-size: 18px;
+            color: var(--gold);
+            margin: 0 auto 24px;
+            background: var(--navy);
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 0 0 4px rgba(196,151,90,0.12);
+        }
+
+        .step-title {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 16px;
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+
+        .step-desc {
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.75;
+        }
+
+        /* ── Testimonials ── */
+        #testimonials { background: var(--cream); }
+
+        .testimonials-placeholder {
+            margin-top: 48px;
+            text-align: center;
+            padding: 80px 40px;
+            background: var(--bg-alt);
+            border: 1px dashed var(--border);
+            border-radius: 2px;
+        }
+
+        .testimonials-placeholder p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .testimonials-placeholder .coming {
+            font-size: 11px;
+            letter-spacing: 4px;
+            color: var(--gold);
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+
+        /* ── FAQ ── */
+        #faq { background: var(--bg-alt); }
+
+        .faq-header { text-align: center; }
+        .faq-header .divider { margin-left: auto; margin-right: auto; }
+
+        .faq-list {
+            max-width: 720px;
+            margin: 48px auto 0;
+        }
+
+        .faq-item { border-bottom: 1px solid var(--border); }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            cursor: pointer;
+            font-size: 15px;
+            color: var(--navy);
+            font-weight: 500;
+            gap: 16px;
+            user-select: none;
+        }
+
+        .faq-icon {
+            font-size: 22px;
+            color: var(--gold);
+            line-height: 1;
+            flex-shrink: 0;
+            transition: transform 0.25s;
+        }
+
+        .faq-answer {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.9;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding-bottom 0.35s;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 200px;
+            padding-bottom: 24px;
+        }
+
+        .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+        /* ── Contact ── */
+        #contact {
+            background: var(--navy);
+            text-align: center;
+        }
+
+        #contact .section-title { color: var(--white); }
+        #contact .section-label { color: var(--gold); }
+        #contact .divider { margin-left: auto; margin-right: auto; }
+
+        .contact-box { max-width: 540px; margin: 0 auto; }
+
+        .contact-desc {
+            color: rgba(255,255,255,0.6);
+            font-size: 16px;
+            line-height: 1.85;
+            margin-bottom: 40px;
+        }
+
+        .line-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #06C755;
+            color: white;
+            padding: 16px 36px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: background 0.2s;
+            margin-bottom: 20px;
+        }
+
+        .line-btn:hover { background: #05B34D; }
+
+        .contact-id {
+            color: rgba(255,255,255,0.45);
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .contact-id a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .contact-social {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 40px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .social-link {
+            color: rgba(255,255,255,0.45);
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: color 0.2s;
+        }
+
+        .social-link:hover { color: var(--gold); }
+
+        /* ── Footer ── */
+        footer {
+            background: #111E14;
+            padding: 28px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-logo img {
+            height: 32px;
+            width: auto;
+        }
+
+        .footer-copy {
+            font-size: 12px;
+            color: rgba(255,255,255,0.25);
+            letter-spacing: 1px;
+        }
+
+        /* ── Fade-in ── */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Luopan ── */
+        .hero-luopan {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            flex-shrink: 0;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.65;
+        }
+
+        @keyframes luopan-spin-cw {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+
+        @keyframes luopan-spin-ccw {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(-360deg); }
+        }
+
+        .luopan-outer-ring {
+            transform-origin: 250px 250px;
+            animation: luopan-spin-cw 120s linear infinite;
+        }
+
+        .luopan-inner-ring {
+            transform-origin: 250px 250px;
+            animation: luopan-spin-ccw 80s linear infinite;
+        }
+
+        /* ── Mobile ── */
+        @media (max-width: 768px) {
+            nav { padding: 16px 20px; }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%; left: 0; right: 0;
+                background: var(--navy);
+                flex-direction: column;
+                padding: 20px;
+                gap: 16px;
+                border-top: 1px solid rgba(255,255,255,0.08);
+            }
+
+            .nav-links.open { display: flex; }
+
+            .hamburger { display: flex; }
+
+            section { padding: 72px 20px; }
+
+            .section-title { font-size: 28px; }
+
+            #hero {
+                padding: 120px 20px 72px;
+                flex-direction: column;
+                justify-content: center;
+                gap: 40px;
+            }
+
+            .hero-luopan {
+                width: 300px;
+                height: 300px;
+                opacity: 0.4;
+            }
+
+            .hero-title { letter-spacing: 6px; }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-photo {
+                aspect-ratio: 1/1;
+                max-width: 280px;
+                margin: 0 auto;
+            }
+
+            .about-stats { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+            .stat-num { font-size: 26px; }
+
+            .services-grid { grid-template-columns: 1fr; }
+
+            .services-header { flex-direction: column; align-items: flex-start; }
+
+            .process-steps {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+
+            .process-steps::before { display: none; }
+
+            footer { flex-direction: column; text-align: center; padding: 24px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav id="navbar">
+    <a href="#hero" class="nav-logo">
+        <img src="images/logo.png" alt="玄境拾光">
+    </a>
+    <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+        <li><a href="#about">關於我</a></li>
+        <li><a href="#services">服務</a></li>
+        <li><a href="#process">流程</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact" class="nav-cta">立即預約</a></li>
+    </ul>
+</nav>
+
+<!-- Hero -->
+<section id="hero">
+    <canvas id="stars-canvas"></canvas>
+    <svg id="luopan-svg" class="hero-luopan" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div class="hero-content">
+        <div class="hero-tag">✦ 風水命理顧問</div>
+        <h1 class="hero-title">玄境拾光</h1>
+        <p class="hero-subtitle">姓名學・五行・流年財運・紫微斗數・奇門遁甲</p>
+        <p class="hero-quote">「透過古老智慧，看見你的人生藍圖」</p>
+        <div class="hero-btns">
+            <a href="#services" class="btn-primary">了解服務</a>
+            <a href="#contact" class="btn-outline">立即預約</a>
+        </div>
+    </div>
+</section>
+
+<!-- About -->
+<section id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-photo-wrap">
+                <div class="about-photo">
+                    <div class="photo-placeholder">
+                        <span class="icon">☯</span>
+                        <p>個人照片</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-text fade-in">
+                <p class="section-label">關於我</p>
+                <h2 class="section-title">十年鑽研，<br>用命理看見你的天賦</h2>
+                <div class="divider"></div>
+                <p>命理不是算命，而是一套看見自己的系統。投入命理研究超過十年，深入鑽研姓名學、五行生剋、紫微斗數與奇門遁甲，整合多種古老智慧，幫助每一位個案找到屬於自己的節奏與方向。</p>
+                <p>每個人生來就有獨特的生命密碼。透過排盤解析，能看見你的天賦潛能、財運走向、感情模式與人生課題——不是預測未來，而是幫你讀懂已經存在的藍圖。</p>
+                <p>相信每一次諮詢，都是一次與自己深度對話的機會。</p>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-num">10+</span>
+                        <p class="stat-label">研究年資</p>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">500+</span>
+                        <p class="stat-label">服務個案</p>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">5</span>
+                        <p class="stat-label">命理系統</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services -->
+<section id="services">
+    <div class="container">
+        <div class="services-header fade-in">
+            <div>
+                <p class="section-label">服務項目</p>
+                <h2 class="section-title">選擇適合你的命理服務</h2>
+                <div class="divider"></div>
+            </div>
+            <p class="section-desc">每項服務均提供書面報告<br>線上諮詢，全台皆可預約</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">☰</div>
+                <h3 class="service-name">姓名學排盤</h3>
+                <p class="service-desc">深度分析姓名五行格局、天地人三才、五格數理，找出名字對運勢的實際影響，並提供改名建議方向。</p>
+                <p class="service-price">NT$ 2,500 <span>／次</span></p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">☽</div>
+                <h3 class="service-name">流年財運報告</h3>
+                <p class="service-desc">結合八字五行與飛星，分析當年財運走勢、投資時機與財務決策吉凶，提前掌握年度節奏。</p>
+                <p class="service-price">NT$ 3,500 <span>／份</span></p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">⌂</div>
+                <h3 class="service-name">風水諮詢</h3>
+                <p class="service-desc">居家或辦公室磁場評估，針對格局、方位與擺設提供調整建議，改善環境氣場，提升整體運勢。</p>
+                <p class="service-price">NT$ 5,000 <span>／次</span></p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">✦</div>
+                <h3 class="service-name">紫微斗數</h3>
+                <p class="service-desc">解析個人命盤十二宮位，深入了解性格特質、事業財運走向、感情婚姻模式與人生整體格局。</p>
+                <p class="service-price">NT$ 4,500 <span>／次</span></p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">◈</div>
+                <h3 class="service-name">奇門遁甲</h3>
+                <p class="service-desc">擇日、擇方位，分析事業決策與出行方向，把握吉時吉方的天地人合一之力，提升行動勝率。</p>
+                <p class="service-price">NT$ 4,000 <span>／次</span></p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">⊕</div>
+                <h3 class="service-name">綜合命理諮詢</h3>
+                <p class="service-desc">整合姓名學、紫微、奇門等多種工具，全面解析人生藍圖，適合想深度了解自己全方位格局的個案。</p>
+                <p class="service-price">NT$ 6,800 <span>／次</span></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Process -->
+<section id="process">
+    <div class="container">
+        <p class="section-label">諮詢流程</p>
+        <h2 class="section-title">四個步驟，開始你的命理之旅</h2>
+        <div class="process-steps">
+            <div class="process-step fade-in">
+                <div class="step-num">一</div>
+                <h4 class="step-title">加入 LINE 聯絡</h4>
+                <p class="step-desc">掃描 QR Code 或搜尋 @023ekrej，告知欲預約的服務項目</p>
+            </div>
+            <div class="process-step fade-in">
+                <div class="step-num">二</div>
+                <h4 class="step-title">提供基本資料</h4>
+                <p class="step-desc">依服務類型提供出生年月日時、姓名等必要排盤資訊</p>
+            </div>
+            <div class="process-step fade-in">
+                <div class="step-num">三</div>
+                <h4 class="step-title">深度排盤分析</h4>
+                <p class="step-desc">完成付款後，3–5 個工作天內完成排盤與書面解析報告</p>
+            </div>
+            <div class="process-step fade-in">
+                <div class="step-num">四</div>
+                <h4 class="step-title">報告與追蹤</h4>
+                <p class="step-desc">交付書面報告並安排線上說明，後續提供 30 天追蹤諮詢</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section id="testimonials">
+    <div class="container">
+        <p class="section-label">個案回饋</p>
+        <h2 class="section-title">他們說的話</h2>
+        <div class="divider"></div>
+        <div class="testimonials-placeholder">
+            <p>個案見證文字即將上線</p>
+            <p class="coming">Coming Soon</p>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+    <div class="container">
+        <div class="faq-header">
+            <p class="section-label">常見問題</p>
+            <h2 class="section-title">你可能想知道的事</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question">
+                    諮詢需要提供哪些資料？
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    依服務類型不同，基本上需要提供姓名、出生年月日（國曆）以及出生時辰。姓名學以姓名為主；紫微斗數、流年財運則需要完整的出生時辰，越精確越好。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    諮詢如何進行？可以面對面嗎？
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    目前主要以線上方式進行（LINE 視訊或語音），方便全台灣的個案都能預約。如需面對面諮詢，請透過 LINE 聯絡進一步討論。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    報告多久可以拿到？
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    確認付款後，一般排程為 3–5 個工作天完成報告，並安排線上說明時間。旺季或特殊節日前後可能稍長，會提前告知。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    可以諮詢哪些主題？
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    常見主題包含：事業轉換、財運分析、感情婚姻、創業時機、子女教育、搬遷擇日等。歡迎直接告知最想了解的面向，再建議最適合的服務項目。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    付款方式有哪些？
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    目前接受銀行轉帳、LINE Pay 及街口支付。確認服務項目後，會於 LINE 上提供匯款資訊，完成付款後即開始排盤。
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+    <div class="container">
+        <div class="contact-box">
+            <p class="section-label">預約諮詢</p>
+            <h2 class="section-title">準備好看見<br>你的生命藍圖了嗎？</h2>
+            <div class="divider"></div>
+            <p class="contact-desc">透過 LINE 聯絡，告知想了解的服務項目，我會盡快回覆並安排後續流程。</p>
+            <a href="https://line.me/R/ti/p/@023ekrej" class="line-btn" target="_blank">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.105.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+                </svg>
+                加入 LINE 預約諮詢
+            </a>
+            <p class="contact-id">LINE ID：<a href="https://line.me/R/ti/p/@023ekrej" target="_blank">@023ekrej</a></p>
+            <div class="contact-social">
+                <a href="https://www.instagram.com/mysticfeather9" class="social-link" target="_blank">
+                    Instagram @mysticfeather9
+                </a>
+                <a href="https://www.mysticfeather9.com" class="social-link">
+                    mysticfeather9.com
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-logo">
+        <img src="images/logo.png" alt="玄境拾光">
+    </div>
+    <p class="footer-copy">© 2026 玄境拾光 MysticFeather9. All rights reserved.</p>
+</footer>
+
+<script>
+    // Stars animation
+    const canvas = document.getElementById('stars-canvas');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+
+    function resizeCanvas() {
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+    }
+
+    function initStars() {
+        stars = [];
+        for (let i = 0; i < 130; i++) {
+            stars.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                r: Math.random() * 1.4 + 0.2,
+                baseAlpha: Math.random() * 0.5 + 0.1,
+                speed: Math.random() * 0.8 + 0.3
+            });
+        }
+    }
+
+    function drawStars() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const t = Date.now() * 0.001;
+        stars.forEach(s => {
+            const alpha = s.baseAlpha * (0.65 + 0.35 * Math.sin(t * s.speed));
+            ctx.beginPath();
+            ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(196,151,90,${alpha})`;
+            ctx.fill();
+        });
+        requestAnimationFrame(drawStars);
+    }
+
+    window.addEventListener('resize', () => { resizeCanvas(); initStars(); });
+    resizeCanvas();
+    initStars();
+    drawStars();
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(q => {
+        q.addEventListener('click', () => {
+            const item = q.parentElement;
+            const isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+            if (!isOpen) item.classList.add('open');
+        });
+    });
+
+    // Nav scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Mobile nav toggle
+    document.getElementById('hamburger').addEventListener('click', () => {
+        document.getElementById('nav-links').classList.toggle('open');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(a => {
+        a.addEventListener('click', () => {
+            document.getElementById('nav-links').classList.remove('open');
+        });
+    });
+
+    // Scroll fade-in
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                observer.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // 風水羅盤生成
+    function createLuopan() {
+        const svg = document.getElementById('luopan-svg');
+        const ns = 'http://www.w3.org/2000/svg';
+        const cx = 250, cy = 250;
+        const G = (a) => `rgba(196,151,90,${a})`;
+
+        function mkEl(tag, attrs) {
+            const e = document.createElementNS(ns, tag);
+            Object.entries(attrs).forEach(([k, v]) => e.setAttribute(k, v));
+            return e;
+        }
+
+        function circ(parent, r, stroke, sw) {
+            parent.appendChild(mkEl('circle', { cx, cy, r, fill: 'none', stroke, 'stroke-width': sw || 0.8 }));
+        }
+
+        function txt(parent, x, y, content, size, opacity) {
+            const t = mkEl('text', {
+                x, y,
+                'text-anchor': 'middle',
+                'dominant-baseline': 'middle',
+                fill: G(opacity),
+                'font-size': size,
+                'font-family': 'serif'
+            });
+            t.textContent = content;
+            parent.appendChild(t);
+        }
+
+        // 外環（順時針慢轉）：24山 + 八卦
+        const outerG = mkEl('g', { class: 'luopan-outer-ring' });
+        svg.appendChild(outerG);
+
+        circ(outerG, 245, G(0.45), 1);
+        circ(outerG, 218, G(0.2), 0.5);
+        circ(outerG, 192, G(0.3), 0.8);
+
+        // 24 tick marks
+        for (let i = 0; i < 24; i++) {
+            const angle = i * 15 * Math.PI / 180;
+            const major = i % 3 === 0;
+            outerG.appendChild(mkEl('line', {
+                x1: cx + (major ? 226 : 232) * Math.sin(angle),
+                y1: cy - (major ? 226 : 232) * Math.cos(angle),
+                x2: cx + 245 * Math.sin(angle),
+                y2: cy - 245 * Math.cos(angle),
+                stroke: G(major ? 0.55 : 0.25),
+                'stroke-width': major ? 1.2 : 0.5
+            }));
+        }
+
+        // 後天八卦（Later Heaven Bagua）
+        const bagua = [
+            { sym: '☵', name: '坎' }, { sym: '☶', name: '艮' },
+            { sym: '☳', name: '震' }, { sym: '☴', name: '巽' },
+            { sym: '☲', name: '離' }, { sym: '☷', name: '坤' },
+            { sym: '☱', name: '兌' }, { sym: '☰', name: '乾' }
+        ];
+        bagua.forEach((b, i) => {
+            const angle = i * 45 * Math.PI / 180;
+            const r = 205;
+            const x = cx + r * Math.sin(angle);
+            const y = cy - r * Math.cos(angle);
+            txt(outerG, x, y - 9, b.sym, 15, 0.78);
+            txt(outerG, x, y + 9, b.name, 10, 0.52);
+        });
+
+        // 中環（靜止）：五行
+        const midG = mkEl('g', {});
+        svg.appendChild(midG);
+
+        [162, 132, 102].forEach((r, i) => {
+            circ(midG, r, G([0.25, 0.2, 0.25][i]), 0.8);
+        });
+
+        for (let i = 0; i < 8; i++) {
+            const angle = i * 45 * Math.PI / 180;
+            midG.appendChild(mkEl('line', {
+                x1: cx + 102 * Math.sin(angle), y1: cy - 102 * Math.cos(angle),
+                x2: cx + 162 * Math.sin(angle), y2: cy - 162 * Math.cos(angle),
+                stroke: G(0.15), 'stroke-width': 0.5
+            }));
+        }
+
+        [
+            { name: '水', a: 0 }, { name: '木', a: 90 },
+            { name: '火', a: 180 }, { name: '金', a: 270 }
+        ].forEach(w => {
+            const a = w.a * Math.PI / 180;
+            txt(midG, cx + 120 * Math.sin(a), cy - 120 * Math.cos(a), w.name, 13, 0.38);
+        });
+        txt(midG, cx, cy + 2, '土', 13, 0.32);
+
+        // 內環（逆時針慢轉）
+        const innerG = mkEl('g', { class: 'luopan-inner-ring' });
+        svg.appendChild(innerG);
+
+        circ(innerG, 74, G(0.35), 1);
+        circ(innerG, 54, G(0.25), 0.8);
+
+        for (let i = 0; i < 8; i++) {
+            const angle = i * 45 * Math.PI / 180;
+            innerG.appendChild(mkEl('line', {
+                x1: cx + 54 * Math.sin(angle), y1: cy - 54 * Math.cos(angle),
+                x2: cx + 74 * Math.sin(angle), y2: cy - 74 * Math.cos(angle),
+                stroke: G(0.4), 'stroke-width': 0.8
+            }));
+        }
+
+        innerG.appendChild(mkEl('circle', { cx, cy, r: 9, fill: G(0.12), stroke: G(0.55), 'stroke-width': 1 }));
+        innerG.appendChild(mkEl('circle', { cx, cy, r: 3, fill: G(0.6) }));
+    }
+
+    createLuopan();
+</script>
+
+</body>
+</html>
