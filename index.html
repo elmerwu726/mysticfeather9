@@ -257,70 +257,8 @@
         #about { background: var(--cream); }
 
         .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.6fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .about-photo-wrap {
-            position: relative;
-        }
-
-        .about-photo-wrap::before {
-            content: '';
-            position: absolute;
-            top: -24px; left: -24px; right: -24px; bottom: -24px;
-            border: 1px solid rgba(196,151,90,0.2);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .about-photo-wrap::after {
-            content: '';
-            position: absolute;
-            top: -12px; left: -12px; right: -12px; bottom: -12px;
-            border: 1px dashed rgba(196,151,90,0.12);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .about-photo {
-            aspect-ratio: 3/4;
-            background: var(--bg-alt);
-            border-radius: 2px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--border);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .about-photo::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--gold), var(--gold-light));
-        }
-
-        .photo-placeholder {
-            text-align: center;
-            color: var(--text-light);
-        }
-
-        .photo-placeholder .icon {
-            font-size: 52px;
-            display: block;
-            margin-bottom: 12px;
-            opacity: 0.3;
-        }
-
-        .photo-placeholder p {
-            font-size: 13px;
-            letter-spacing: 1px;
-            opacity: 0.5;
+            max-width: 720px;
+            margin: 0 auto;
         }
 
         .about-text p {
@@ -328,6 +266,61 @@
             margin-bottom: 20px;
             line-height: 1.95;
             font-size: 15px;
+        }
+
+        .credentials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 32px;
+        }
+
+        .credential-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 6px 14px;
+            border: 1px solid rgba(196,151,90,0.45);
+            border-radius: 2px;
+            font-size: 13px;
+            color: var(--gold);
+            letter-spacing: 0.5px;
+            background: rgba(196,151,90,0.06);
+        }
+
+        .credential-tag .cred-icon {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .expertise-tags {
+            margin-bottom: 32px;
+        }
+
+        .expertise-label {
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            color: var(--text-light);
+            margin-bottom: 10px !important;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+        .expertise-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .expertise-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: 2px;
+            font-size: 12px;
+            color: var(--text-light);
+            letter-spacing: 0.5px;
         }
 
         .about-stats {
@@ -370,7 +363,7 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 24px;
         }
 
@@ -760,6 +753,10 @@
         }
 
         /* ── Mobile ── */
+        @media (max-width: 1100px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
         @media (max-width: 768px) {
             nav { padding: 16px 20px; }
 
@@ -796,17 +793,6 @@
             }
 
             .hero-title { letter-spacing: 6px; }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .about-photo {
-                aspect-ratio: 1/1;
-                max-width: 280px;
-                margin: 0 auto;
-            }
 
             .about-stats { grid-template-columns: repeat(3, 1fr); gap: 16px; }
 
@@ -866,14 +852,6 @@
 <section id="about">
     <div class="container">
         <div class="about-grid">
-            <div class="about-photo-wrap">
-                <div class="about-photo">
-                    <div class="photo-placeholder">
-                        <span class="icon">☯</span>
-                        <p>個人照片</p>
-                    </div>
-                </div>
-            </div>
             <div class="about-text fade-in">
                 <p class="section-label">關於我</p>
                 <h2 class="section-title">十年鑽研，<br>用命理看見你的天賦</h2>
@@ -881,6 +859,25 @@
                 <p>命理不是算命，而是一套看見自己的系統。投入命理研究超過十年，深入鑽研姓名學、五行生剋、紫微斗數與奇門遁甲，整合多種古老智慧，幫助每一位個案找到屬於自己的節奏與方向。</p>
                 <p>每個人生來就有獨特的生命密碼。透過排盤解析，能看見你的天賦潛能、財運走向、感情模式與人生課題——不是預測未來，而是幫你讀懂已經存在的藍圖。</p>
                 <p>相信每一次諮詢，都是一次與自己深度對話的機會。</p>
+                <div class="credentials">
+                    <span class="credential-tag">
+                        <span class="cred-icon">◎</span>
+                        巃羽堂陽宅弟子
+                    </span>
+                </div>
+                <div class="expertise-tags">
+                    <p class="expertise-label">精通派別</p>
+                    <div class="expertise-list">
+                        <span class="expertise-tag">形家派</span>
+                        <span class="expertise-tag">三元納氣</span>
+                        <span class="expertise-tag">東西四命陽宅學</span>
+                        <span class="expertise-tag">紫白飛星法</span>
+                        <span class="expertise-tag">乾坤國寶</span>
+                        <span class="expertise-tag">三元玄空陽宅學</span>
+                        <span class="expertise-tag">奇門遁甲</span>
+                        <span class="expertise-tag">姓名學</span>
+                    </div>
+                </div>
                 <div class="about-stats">
                     <div class="stat-item">
                         <span class="stat-num">10+</span>
@@ -891,7 +888,7 @@
                         <p class="stat-label">服務個案</p>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-num">5</span>
+                        <span class="stat-num">8</span>
                         <p class="stat-label">命理系統</p>
                     </div>
                 </div>
@@ -915,7 +912,7 @@
             <div class="service-card fade-in">
                 <div class="service-icon">☰</div>
                 <h3 class="service-name">姓名學排盤</h3>
-                <p class="service-desc">深度分析姓名五行格局、天地人三才、五格數理，找出名字對運勢的實際影響，並提供改名建議方向。</p>
+                <p class="service-desc">提供成人改名與嬰兒命名服務，運用三才八格、生肖五行深度解析名字格局，並搭配紫微命盤交叉確認，找出最適合個人命格的名字。</p>
                 <p class="service-price">NT$ 2,500 <span>／次</span></p>
             </div>
             <div class="service-card fade-in">
@@ -926,9 +923,21 @@
             </div>
             <div class="service-card fade-in">
                 <div class="service-icon">⌂</div>
-                <h3 class="service-name">風水諮詢</h3>
-                <p class="service-desc">居家或辦公室磁場評估，針對格局、方位與擺設提供調整建議，改善環境氣場，提升整體運勢。</p>
-                <p class="service-price">NT$ 5,000 <span>／次</span></p>
+                <h3 class="service-name">遠距陽宅風水吉凶鑑定</h3>
+                <p class="service-desc">無需到現場，提供建築地址與平面圖，進行陽宅格局吉凶判斷，分析三元納氣風水布局可行性，附電子鑑定報告。</p>
+                <p class="service-price">NT$ 面議 <span></span></p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">◻</div>
+                <h3 class="service-name">遠距陽宅風水規劃設計</h3>
+                <p class="service-desc">遠距精準規劃財位、文昌位、桃花位與煞氣化解，標示床位座位方位至公分級，附雲端圖面與影片說明，後續問題一對一回覆。</p>
+                <p class="service-price">NT$ 面議 <span></span></p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">⊞</div>
+                <h3 class="service-name">實地陽宅風水堪輿</h3>
+                <p class="service-desc">親赴現場以高精度電子羅盤實地勘察，整合多派風水融合分析，規劃外局與室內旺氣布局，不需拆門改窗。</p>
+                <p class="service-price">NT$ 面議 <span></span></p>
             </div>
             <div class="service-card fade-in">
                 <div class="service-icon">✦</div>
