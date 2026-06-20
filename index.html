@@ -736,7 +736,7 @@
             flex-shrink: 0;
             pointer-events: none;
             z-index: 1;
-            opacity: 0.65;
+            opacity: 0.92;
         }
 
         @keyframes luopan-spin-cw {
@@ -1217,9 +1217,9 @@
         const outerG = mkEl('g', { class: 'luopan-outer-ring' });
         svg.appendChild(outerG);
 
-        circ(outerG, 245, G(0.45), 1);
-        circ(outerG, 218, G(0.2), 0.5);
-        circ(outerG, 192, G(0.3), 0.8);
+        circ(outerG, 245, G(0.8), 1.5);
+        circ(outerG, 218, G(0.4), 0.8);
+        circ(outerG, 192, G(0.6), 1);
 
         // 24 tick marks
         for (let i = 0; i < 24; i++) {
@@ -1230,8 +1230,8 @@
                 y1: cy - (major ? 226 : 232) * Math.cos(angle),
                 x2: cx + 245 * Math.sin(angle),
                 y2: cy - 245 * Math.cos(angle),
-                stroke: G(major ? 0.55 : 0.25),
-                'stroke-width': major ? 1.2 : 0.5
+                stroke: G(major ? 0.9 : 0.5),
+                'stroke-width': major ? 1.8 : 0.8
             }));
         }
 
@@ -1247,8 +1247,8 @@
             const r = 205;
             const x = cx + r * Math.sin(angle);
             const y = cy - r * Math.cos(angle);
-            txt(outerG, x, y - 9, b.sym, 15, 0.78);
-            txt(outerG, x, y + 9, b.name, 10, 0.52);
+            txt(outerG, x, y - 9, b.sym, 17, 0.95);
+            txt(outerG, x, y + 9, b.name, 11, 0.8);
         });
 
         // 中環（靜止）：五行
@@ -1256,7 +1256,7 @@
         svg.appendChild(midG);
 
         [162, 132, 102].forEach((r, i) => {
-            circ(midG, r, G([0.25, 0.2, 0.25][i]), 0.8);
+            circ(midG, r, G([0.55, 0.4, 0.55][i]), 1);
         });
 
         for (let i = 0; i < 8; i++) {
@@ -1264,7 +1264,7 @@
             midG.appendChild(mkEl('line', {
                 x1: cx + 102 * Math.sin(angle), y1: cy - 102 * Math.cos(angle),
                 x2: cx + 162 * Math.sin(angle), y2: cy - 162 * Math.cos(angle),
-                stroke: G(0.15), 'stroke-width': 0.5
+                stroke: G(0.35), 'stroke-width': 0.8
             }));
         }
 
@@ -1273,28 +1273,28 @@
             { name: '火', a: 180 }, { name: '金', a: 270 }
         ].forEach(w => {
             const a = w.a * Math.PI / 180;
-            txt(midG, cx + 120 * Math.sin(a), cy - 120 * Math.cos(a), w.name, 13, 0.38);
+            txt(midG, cx + 120 * Math.sin(a), cy - 120 * Math.cos(a), w.name, 14, 0.7);
         });
-        txt(midG, cx, cy + 2, '土', 13, 0.32);
+        txt(midG, cx, cy + 2, '土', 14, 0.65);
 
         // 內環（逆時針慢轉）
         const innerG = mkEl('g', { class: 'luopan-inner-ring' });
         svg.appendChild(innerG);
 
-        circ(innerG, 74, G(0.35), 1);
-        circ(innerG, 54, G(0.25), 0.8);
+        circ(innerG, 74, G(0.7), 1.5);
+        circ(innerG, 54, G(0.5), 1);
 
         for (let i = 0; i < 8; i++) {
             const angle = i * 45 * Math.PI / 180;
             innerG.appendChild(mkEl('line', {
                 x1: cx + 54 * Math.sin(angle), y1: cy - 54 * Math.cos(angle),
                 x2: cx + 74 * Math.sin(angle), y2: cy - 74 * Math.cos(angle),
-                stroke: G(0.4), 'stroke-width': 0.8
+                stroke: G(0.7), 'stroke-width': 1.2
             }));
         }
 
-        innerG.appendChild(mkEl('circle', { cx, cy, r: 9, fill: G(0.12), stroke: G(0.55), 'stroke-width': 1 }));
-        innerG.appendChild(mkEl('circle', { cx, cy, r: 3, fill: G(0.6) }));
+        innerG.appendChild(mkEl('circle', { cx, cy, r: 9, fill: G(0.2), stroke: G(0.85), 'stroke-width': 1.5 }));
+        innerG.appendChild(mkEl('circle', { cx, cy, r: 3, fill: G(0.9) }));
     }
 
     createLuopan();
