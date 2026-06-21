@@ -819,6 +819,15 @@
             opacity: 0.92;
         }
 
+        @keyframes luopan-glow-pulse {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+
+        #luopanGlow {
+            animation: luopan-glow-pulse 3s ease-in-out infinite;
+        }
+
         @keyframes luopan-spin-cw {
             from { transform: rotate(0deg); }
             to   { transform: rotate(360deg); }
@@ -1496,6 +1505,17 @@
             }));
         }
 
+        // 中心光暈
+        const defs = mkEl('defs', {});
+        const glow = mkEl('radialGradient', { id: 'luopanGlow', cx: '50%', cy: '50%', r: '50%' });
+        const s1 = mkEl('stop', { offset: '0%' }); s1.setAttribute('stop-color', 'rgba(212,170,100,0.55)');
+        const s2 = mkEl('stop', { offset: '40%' }); s2.setAttribute('stop-color', 'rgba(196,151,90,0.18)');
+        const s3 = mkEl('stop', { offset: '100%' }); s3.setAttribute('stop-color', 'rgba(196,151,90,0)');
+        glow.appendChild(s1); glow.appendChild(s2); glow.appendChild(s3);
+        defs.appendChild(glow);
+        svg.insertBefore(defs, svg.firstChild);
+
+        innerG.appendChild(mkEl('circle', { cx, cy, r: 48, fill: 'url(#luopanGlow)' }));
         innerG.appendChild(mkEl('circle', { cx, cy, r: 9, fill: G(0.2), stroke: G(0.85), 'stroke-width': 1.5 }));
         innerG.appendChild(mkEl('circle', { cx, cy, r: 3, fill: G(0.9) }));
     }
