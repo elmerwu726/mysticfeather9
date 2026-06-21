@@ -1378,7 +1378,7 @@
             parent.appendChild(t);
         }
 
-        // 外環（順時針慢轉）：24山 + 八卦
+        // 外環（順時針慢轉）：24山刻度（幾何圖形）
         const outerG = mkEl('g', { class: 'luopan-outer-ring' });
         svg.appendChild(outerG);
 
@@ -1400,7 +1400,10 @@
             }));
         }
 
-        // 後天八卦（Later Heaven Bagua）
+        // 後天八卦文字（靜止覆蓋層，不隨外環轉動，避免字歪）
+        const outerTextG = mkEl('g', {});
+        svg.appendChild(outerTextG);
+
         const bagua = [
             { sym: '☵', name: '坎' }, { sym: '☶', name: '艮' },
             { sym: '☳', name: '震' }, { sym: '☴', name: '巽' },
@@ -1412,8 +1415,8 @@
             const r = 205;
             const x = cx + r * Math.sin(angle);
             const y = cy - r * Math.cos(angle);
-            txt(outerG, x, y - 9, b.sym, 17, 0.95);
-            txt(outerG, x, y + 9, b.name, 11, 0.8);
+            txt(outerTextG, x, y - 9, b.sym, 17, 0.95);
+            txt(outerTextG, x, y + 9, b.name, 11, 0.8);
         });
 
         // 中環（靜止）：五行
