@@ -169,9 +169,18 @@
             height: 100%;
         }
 
+        .hero-mountains {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
         .hero-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             max-width: 540px;
             flex-shrink: 0;
         }
@@ -914,6 +923,11 @@
 <section id="hero">
     <canvas id="stars-canvas"></canvas>
     <svg id="luopan-svg" class="hero-luopan" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"></svg>
+    <svg class="hero-mountains" viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,180 L60,150 L140,165 L240,110 L340,135 L460,85 L560,115 L680,70 L780,100 L900,55 L1000,85 L1100,60 L1220,80 L1340,65 L1440,85 L1440,220 L0,220 Z" fill="rgba(12,24,16,0.25)"/>
+        <path d="M0,195 L80,165 L180,180 L300,135 L400,158 L520,118 L640,148 L760,108 L880,138 L1000,115 L1120,138 L1240,118 L1360,140 L1440,125 L1440,220 L0,220 Z" fill="rgba(10,20,14,0.40)"/>
+        <path d="M0,220 L100,190 L220,208 L340,175 L460,200 L580,168 L700,192 L820,162 L940,185 L1060,168 L1180,188 L1300,172 L1440,185 L1440,220 Z" fill="rgba(8,18,12,0.55)"/>
+    </svg>
     <div class="hero-content">
         <div class="hero-tag">✦ 風水命理顧問</div>
         <h1 class="hero-title">玄境拾光</h1>
@@ -1242,10 +1256,10 @@
 </footer>
 
 <script>
-    // Stars animation
+    // Stars + particles animation
     const canvas = document.getElementById('stars-canvas');
     const ctx = canvas.getContext('2d');
-    let stars = [];
+    let stars = [], particles = [];
 
     function resizeCanvas() {
         canvas.width = canvas.offsetWidth;
@@ -1265,9 +1279,36 @@
         }
     }
 
+    function createParticle() {
+        return {
+            x: Math.random() * canvas.width,
+            y: canvas.height * (0.6 + Math.random() * 0.4),
+            r: Math.random() * 1.8 + 0.5,
+            vy: -(Math.random() * 0.5 + 0.2),
+            vx: (Math.random() - 0.5) * 0.3,
+            alpha: 0,
+            maxAlpha: Math.random() * 0.55 + 0.15,
+            life: 0,
+            maxLife: Math.random() * 220 + 120,
+            phase: Math.random() * Math.PI * 2
+        };
+    }
+
+    function initParticles() {
+        particles = [];
+        for (let i = 0; i < 45; i++) {
+            const p = createParticle();
+            p.life = Math.floor(Math.random() * p.maxLife);
+            p.y -= p.life * Math.abs(p.vy);
+            particles.push(p);
+        }
+    }
+
     function drawStars() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         const t = Date.now() * 0.001;
+
+        // Stars
         stars.forEach(s => {
             const alpha = s.baseAlpha * (0.65 + 0.35 * Math.sin(t * s.speed));
             ctx.beginPath();
@@ -1275,12 +1316,35 @@
             ctx.fillStyle = `rgba(196,151,90,${alpha})`;
             ctx.fill();
         });
+
+        // Rising particles
+        particles.forEach((p, i) => {
+            p.life++;
+            p.y += p.vy;
+            p.x += p.vx + Math.sin(t * 0.8 + p.phase) * 0.15;
+
+            const progress = p.life / p.maxLife;
+            p.alpha = progress < 0.2
+                ? p.maxAlpha * (progress / 0.2)
+                : p.maxAlpha * (1 - (progress - 0.2) / 0.8);
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(212,170,100,${Math.max(0, p.alpha)})`;
+            ctx.fill();
+
+            if (p.life >= p.maxLife || p.y < 0) {
+                particles[i] = createParticle();
+            }
+        });
+
         requestAnimationFrame(drawStars);
     }
 
-    window.addEventListener('resize', () => { resizeCanvas(); initStars(); });
+    window.addEventListener('resize', () => { resizeCanvas(); initStars(); initParticles(); });
     resizeCanvas();
     initStars();
+    initParticles();
     drawStars();
 
     // FAQ accordion
