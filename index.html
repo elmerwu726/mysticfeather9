@@ -363,7 +363,7 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 24px;
         }
 
@@ -404,10 +404,85 @@
             font-size: 18px;
             font-weight: 700;
             color: var(--navy);
+            margin-bottom: 6px;
+        }
+
+        .service-tag {
+            display: inline-block;
+            font-size: 11px;
+            color: var(--gold);
+            border: 1px solid rgba(196,151,90,0.4);
+            padding: 2px 8px;
+            border-radius: 2px;
+            letter-spacing: 0.5px;
             margin-bottom: 10px;
         }
 
-        .service-desc {
+        .service-benefits {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.35s ease, opacity 0.3s ease, margin 0.3s ease;
+        }
+
+        .service-card:hover .service-benefits {
+            max-height: 150px;
+            opacity: 1;
+            margin: 10px 0 14px;
+        }
+
+        .service-benefits li {
+            font-size: 13px;
+            color: var(--text-light);
+            padding: 3px 0 3px 18px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .service-benefits li::before {
+            content: '✔';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-size: 11px;
+            top: 4px;
+        }
+
+        .service-info {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            padding: 0;
+            margin: 0;
+            border-top: 1px solid transparent;
+            transition: max-height 0.35s ease, opacity 0.3s ease, padding 0.3s ease, border-color 0.3s ease;
+        }
+
+        .service-card:hover .service-info {
+            max-height: 120px;
+            opacity: 1;
+            padding-top: 10px;
+            margin-bottom: 14px;
+            border-top-color: var(--border);
+        }
+
+        .service-info p {
+            font-size: 12px;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 4px;
+        }
+
+        .service-info p span {
+            color: var(--navy);
+            font-weight: 600;
+            margin-right: 6px;
+        }
+
+.service-desc {
             font-size: 14px;
             color: var(--text-light);
             line-height: 1.85;
@@ -420,10 +495,13 @@
             font-size: 22px;
             font-weight: 700;
             color: var(--gold);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
         }
 
         .service-price span {
-            font-size: 13px;
+            font-size: 12px;
             font-family: 'Noto Sans TC', sans-serif;
             font-weight: 400;
             color: var(--text-light);
@@ -753,7 +831,7 @@
         }
 
         /* ── Mobile ── */
-        @media (max-width: 1100px) {
+        @media (max-width: 960px) {
             .services-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
@@ -839,7 +917,7 @@
     <div class="hero-content">
         <div class="hero-tag">✦ 風水命理顧問</div>
         <h1 class="hero-title">玄境拾光</h1>
-        <p class="hero-subtitle">姓名學・五行・流年財運・紫微斗數・奇門遁甲</p>
+        <p class="hero-subtitle">陽宅風水・姓名學・命名改名・紫微斗數</p>
         <p class="hero-quote">「透過古老智慧，看見你的人生藍圖」</p>
         <div class="hero-btns">
             <a href="#services" class="btn-primary">了解服務</a>
@@ -854,11 +932,11 @@
         <div class="about-grid">
             <div class="about-text fade-in">
                 <p class="section-label">關於我</p>
-                <h2 class="section-title">十年鑽研，<br>用命理看見你的天賦</h2>
+                <h2 class="section-title">命理 × 陽宅風水，<br>看見你的生命格局</h2>
                 <div class="divider"></div>
-                <p>命理不是算命，而是一套看見自己的系統。投入命理研究超過十年，深入鑽研姓名學、五行生剋、紫微斗數與奇門遁甲，整合多種古老智慧，幫助每一位個案找到屬於自己的節奏與方向。</p>
-                <p>每個人生來就有獨特的生命密碼。透過排盤解析，能看見你的天賦潛能、財運走向、感情模式與人生課題——不是預測未來，而是幫你讀懂已經存在的藍圖。</p>
-                <p>相信每一次諮詢，都是一次與自己深度對話的機會。</p>
+                <p>投入命理與風水研究超過十年，深入鑽研陽宅風水、紫微斗數、奇門遁甲、姓名學，師承巃羽堂陳巃羽老師，專研三元納氣流派、形家派等派別。將多門學問融會貫通，幫助每位個案找到最適合自己的節奏與方向。</p>
+                <p>命盤看得見你的天賦潛能、財運走向與人生課題；陽宅鑑定看得見住家環境中影響你的氣場格局。不是預測未來，而是幫你讀懂已經存在的藍圖，讓每一個選擇更有依據。</p>
+                <p>每一次諮詢，都是讓生活真正改變的起點。</p>
                 <div class="credentials">
                     <span class="credential-tag">
                         <span class="cred-icon">◎</span>
@@ -906,56 +984,107 @@
                 <h2 class="section-title">選擇適合你的命理服務</h2>
                 <div class="divider"></div>
             </div>
-            <p class="section-desc">每項服務均提供書面報告<br>線上諮詢，全台皆可預約</p>
+            <p class="section-desc">遠距服務全球皆可預約<br>實地堪輿請透過 LINE 洽詢範圍</p>
         </div>
         <div class="services-grid">
             <div class="service-card fade-in">
-                <div class="service-icon">☰</div>
-                <h3 class="service-name">姓名學排盤</h3>
-                <p class="service-desc">提供成人改名與嬰兒命名服務，運用三才八格、生肖五行深度解析名字格局，並搭配紫微命盤交叉確認，找出最適合個人命格的名字。</p>
-                <p class="service-price">NT$ 2,500 <span>／次</span></p>
-            </div>
-            <div class="service-card fade-in">
-                <div class="service-icon">☽</div>
-                <h3 class="service-name">流年財運報告</h3>
-                <p class="service-desc">結合八字五行與飛星，分析當年財運走勢、投資時機與財務決策吉凶，提前掌握年度節奏。</p>
-                <p class="service-price">NT$ 3,500 <span>／份</span></p>
-            </div>
-            <div class="service-card fade-in">
                 <div class="service-icon">⌂</div>
                 <h3 class="service-name">遠距陽宅風水吉凶鑑定</h3>
-                <p class="service-desc">無需到現場，提供建築地址與平面圖，進行陽宅格局吉凶判斷，分析三元納氣風水布局可行性，附電子鑑定報告。</p>
-                <p class="service-price">NT$ 面議 <span></span></p>
+                <p class="service-desc">全程遠端進行，無需現場勘查。專業評估陽宅格局吉凶，分析三元納氣布局調整可行性，附電子鑑定報告，全球皆可服務。</p>
+                <ul class="service-benefits">
+                    <li>避開風水大凶的房子</li>
+                    <li>找出真正適合你的吉宅</li>
+                    <li>提早發現潛藏問題，避免購屋後才後悔</li>
+                </ul>
+                <div class="service-info">
+                    <p><span>所需資料</span>建物地址、等比例平面圖、家庭基本資料</p>
+                    <p><span>適用區域</span>台灣、香港、新加坡、美國、加拿大、澳洲等全球地區</p>
+                    <p><span>優惠</span>鑑定後委託規劃設計，可享鑑定費 50% 折抵</p>
+                </div>
+                <p class="service-price">NT$ 5,000 <span>二樓起每層加 2,500</span></p>
             </div>
             <div class="service-card fade-in">
                 <div class="service-icon">◻</div>
-                <h3 class="service-name">遠距陽宅風水規劃設計</h3>
-                <p class="service-desc">遠距精準規劃財位、文昌位、桃花位與煞氣化解，標示床位座位方位至公分級，附雲端圖面與影片說明，後續問題一對一回覆。</p>
-                <p class="service-price">NT$ 面議 <span></span></p>
+                <h3 class="service-name">遠距陽宅風水規劃設計｜住宅</h3>
+                <p class="service-desc">不受地點限制，三元納氣多派融合分析，為你規劃全宅旺氣格局。</p>
+                <ul class="service-benefits">
+                    <li>多派融合：三元納氣、紫白飛星、乾坤國寶、東西四命</li>
+                    <li>無需拆門改窗，保留原始空間</li>
+                    <li>財位、文昌位、桃花位、煞氣點逐一標示</li>
+                    <li>床位、座位、門窗距離精準至公分</li>
+                    <li>後續問題一對一親自回覆</li>
+                </ul>
+                <div class="service-info">
+                    <p><span>適用對象</span>預售屋、新宅裝修前、中古屋調整、房屋重建規劃皆適用</p>
+                    <p><span>適用區域</span>台灣、大陸、香港、馬來西亞、美國等全球地區</p>
+                </div>
+                <p class="service-price">NT$ 7,500 <span>二樓起每層加 3,500</span></p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">◫</div>
+                <h3 class="service-name">遠距陽宅風水規劃設計｜公司工廠</h3>
+                <p class="service-desc">不受地點限制，針對商業空間進行三元納氣多派融合分析，規劃辦公室、廠房旺氣格局。</p>
+                <ul class="service-benefits">
+                    <li>多派融合：三元納氣、紫白飛星、乾坤國寶、東西四命</li>
+                    <li>無需拆門改窗，保留原始空間</li>
+                    <li>財位、文昌位、桃花位、煞氣點逐一標示</li>
+                    <li>座位、門窗、動線方位精準至公分</li>
+                    <li>後續問題一對一親自回覆</li>
+                </ul>
+                <div class="service-info">
+                    <p><span>適用對象</span>辦公室、店面、工廠、倉庫等商業空間</p>
+                    <p><span>適用區域</span>台灣、大陸、香港、馬來西亞、美國等全球地區</p>
+                </div>
+                <p class="service-price">費用面議 <span>視空間大小及複雜度</span></p>
             </div>
             <div class="service-card fade-in">
                 <div class="service-icon">⊞</div>
-                <h3 class="service-name">實地陽宅風水堪輿</h3>
-                <p class="service-desc">親赴現場以高精度電子羅盤實地勘察，整合多派風水融合分析，規劃外局與室內旺氣布局，不需拆門改窗。</p>
-                <p class="service-price">NT$ 面議 <span></span></p>
+                <h3 class="service-name">實地陽宅風水規劃設計</h3>
+                <p class="service-desc">親自實地勘察規劃，量身打造合宜風水環境布局。科學與傳統兼備，並提供永久免費諮詢，做您長久信賴的陽宅顧問。</p>
+                <ul class="service-benefits">
+                    <li>三元納氣多派融合：紫白飛星、乾坤國寶、東西四命</li>
+                    <li>外局規劃：門路、嶠星、水神真機等技法強化收氣引氣</li>
+                    <li>零正催照水法，強化財官雙運</li>
+                    <li>室內旺氣布局依家庭成員八字命格量身打造</li>
+                    <li>高精度智能電子羅盤，細分每度數，旺衰一目了然</li>
+                    <li>無需拆門改窗，永久免費諮詢服務</li>
+                </ul>
+                <div class="service-info">
+                    <p><span>適用對象</span>一般住宅、店面、企業、公司工廠</p>
+                </div>
+                <p class="service-price">費用面議 <span>視空間大小及複雜度</span></p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">☰</div>
+                <h3 class="service-name">新生兒命名｜成人改名</h3>
+                <p class="service-desc">名字是每天接觸的語言符號，合適的名字讓命格潛能更順利發揮。三才八格、生肖五行深度解析，搭配紫微命盤交叉確認。</p>
+                <ul class="service-benefits">
+                    <li>合適的名字與命格相符，五行平衡，形音義吉祥</li>
+                    <li>有助提升自信、形象、人際感受與心理能量</li>
+                    <li>不適名字可能在人際、事業、心理層面形成無形阻力</li>
+                    <li>三才八格 + 生肖五行深度解析</li>
+                    <li>搭配紫微命盤交叉確認，找出最符合命格的名字</li>
+                </ul>
+                <div class="service-info">
+                    <p><span>新生兒命名</span>嬰兒姓名、性別、生辰、喜忌用字</p>
+                    <p><span>成人改名</span>本人姓名、性別、生辰</p>
+                </div>
+                <p class="service-price">NT$ 2,600 <span>每次</span></p>
             </div>
             <div class="service-card fade-in">
                 <div class="service-icon">✦</div>
-                <h3 class="service-name">紫微斗數</h3>
-                <p class="service-desc">解析個人命盤十二宮位，深入了解性格特質、事業財運走向、感情婚姻模式與人生整體格局。</p>
-                <p class="service-price">NT$ 4,500 <span>／次</span></p>
-            </div>
-            <div class="service-card fade-in">
-                <div class="service-icon">◈</div>
-                <h3 class="service-name">奇門遁甲</h3>
-                <p class="service-desc">擇日、擇方位，分析事業決策與出行方向，把握吉時吉方的天地人合一之力，提升行動勝率。</p>
-                <p class="service-price">NT$ 4,000 <span>／次</span></p>
-            </div>
-            <div class="service-card fade-in">
-                <div class="service-icon">⊕</div>
-                <h3 class="service-name">綜合命理諮詢</h3>
-                <p class="service-desc">整合姓名學、紫微、奇門等多種工具，全面解析人生藍圖，適合想深度了解自己全方位格局的個案。</p>
-                <p class="service-price">NT$ 6,800 <span>／次</span></p>
+                <h3 class="service-name">紫微斗數｜線上諮詢</h3>
+                <p class="service-desc">透過紫微斗數解析個人命盤，系統化了解學業、事業、婚姻、財運走向。不只看命，更給你量身訂製的人生建議。</p>
+                <ul class="service-benefits">
+                    <li>精準時辰校正，排除登記誤差與太陽時差，找出真實命盤</li>
+                    <li>格局 + 單星整合分析，全面解讀命盤結構</li>
+                    <li>三個大限 + 三個流年吉凶推演，掌握人生黃金關鍵年</li>
+                    <li>根據命盤提供貼切人生建言，走出最適合自己的路徑</li>
+                </ul>
+                <div class="service-info">
+                    <p><span>準備資料</span>姓名、性別、婚姻狀況、出生時間（幾點幾分）、出生地、想詢問的問題</p>
+                </div>
+                <p class="service-price">NT$ 2,600 <span>每小時</span></p>
             </div>
         </div>
     </div>
@@ -975,12 +1104,12 @@
             <div class="process-step fade-in">
                 <div class="step-num">二</div>
                 <h4 class="step-title">提供基本資料</h4>
-                <p class="step-desc">依服務類型提供出生年月日時、姓名等必要排盤資訊</p>
+                <p class="step-desc">依服務類型提供出生年月日時、姓名，或建物地址與平面圖等必要資訊</p>
             </div>
             <div class="process-step fade-in">
                 <div class="step-num">三</div>
-                <h4 class="step-title">深度排盤分析</h4>
-                <p class="step-desc">完成付款後，3–5 個工作天內完成排盤與書面解析報告</p>
+                <h4 class="step-title">深度分析規劃</h4>
+                <p class="step-desc">完成付款後，5–7 個工作天內完成分析，風水服務附圖面</p>
             </div>
             <div class="process-step fade-in">
                 <div class="step-num">四</div>
@@ -1019,7 +1148,7 @@
                     <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-answer">
-                    依服務類型不同，基本上需要提供姓名、出生年月日（國曆）以及出生時辰。姓名學以姓名為主；紫微斗數、流年財運則需要完整的出生時辰，越精確越好。
+                    依服務類型而定。命理諮詢（姓名學、紫微斗數）需提供姓名、出生年月日與時辰，越精確越好；風水服務需提供建物地址與等比例平面圖。詳細準備資料可參考各服務說明。
                 </div>
             </div>
             <div class="faq-item">
@@ -1046,7 +1175,7 @@
                     <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-answer">
-                    常見主題包含：事業轉換、財運分析、感情婚姻、創業時機、子女教育、搬遷擇日等。歡迎直接告知最想了解的面向，再建議最適合的服務項目。
+                    常見主題包含：購屋前陽宅鑑定、居家或辦公室風水調整、新生兒命名、成人改名、命盤解析、事業財運分析、感情婚姻、創業時機等。歡迎直接告知最想了解的面向，我會建議最適合的服務項目。
                 </div>
             </div>
             <div class="faq-item">
