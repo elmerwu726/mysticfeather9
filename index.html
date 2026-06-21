@@ -704,35 +704,31 @@
 
         .line-btn:hover { background: #05B34D; }
 
-        .contact-id {
-            color: rgba(255,255,255,0.45);
-            font-size: 13px;
-            letter-spacing: 1px;
-        }
-
-        .contact-id a {
-            color: var(--gold);
-            text-decoration: none;
-        }
-
-        .contact-social {
+        .contact-handles {
             display: flex;
             justify-content: center;
-            gap: 32px;
-            margin-top: 40px;
-            padding-top: 32px;
+            align-items: center;
+            gap: 12px;
+            margin-top: 32px;
+            padding-top: 28px;
             border-top: 1px solid rgba(255,255,255,0.1);
+            flex-wrap: wrap;
         }
 
-        .social-link {
-            color: rgba(255,255,255,0.45);
+        .handle-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: rgba(255,255,255,0.5);
             text-decoration: none;
             font-size: 13px;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             transition: color 0.2s;
         }
 
-        .social-link:hover { color: var(--gold); }
+        .handle-link:hover { color: var(--gold); }
+        .handle-link svg { flex-shrink: 0; opacity: 0.75; }
+        .handle-sep { color: rgba(255,255,255,0.2); font-size: 16px; }
 
         /* ── Footer ── */
         footer {
@@ -1243,7 +1239,7 @@
     <div class="container">
         <div class="contact-box">
             <p class="section-label">預約諮詢</p>
-            <h2 class="section-title">準備好看見<br>你的生命藍圖了嗎？</h2>
+            <h2 class="section-title">準備好看見你的生命藍圖了嗎？</h2>
             <div class="divider"></div>
             <p class="contact-desc">透過 LINE 聯絡，告知想了解的服務項目，我會盡快回覆並安排後續流程。</p>
             <a href="https://line.me/R/ti/p/@023ekrej" class="line-btn" target="_blank">
@@ -1252,12 +1248,19 @@
                 </svg>
                 加入 LINE 預約諮詢
             </a>
-            <p class="contact-id">LINE ID：<a href="https://line.me/R/ti/p/@023ekrej" target="_blank">@023ekrej</a></p>
-            <div class="contact-social">
-                <a href="https://www.instagram.com/mysticfeather9" class="social-link" target="_blank">
-                    Instagram @mysticfeather9
+            <div class="contact-handles">
+                <a href="https://line.me/R/ti/p/@023ekrej" class="handle-link" target="_blank">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+                    @023ekrej
                 </a>
-                <a href="https://www.mysticfeather9.com" class="social-link">
+                <span class="handle-sep">・</span>
+                <a href="https://www.instagram.com/mysticfeather9" class="handle-link" target="_blank">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    @mysticfeather9
+                </a>
+                <span class="handle-sep">・</span>
+                <a href="https://www.mysticfeather9.com" class="handle-link">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                     mysticfeather9.com
                 </a>
             </div>
