@@ -450,7 +450,8 @@
             transition: max-height 0.35s ease, opacity 0.3s ease, margin 0.3s ease;
         }
 
-        .service-card:hover .service-benefits {
+        .service-card:hover .service-benefits,
+        .service-card.active .service-benefits {
             max-height: 150px;
             opacity: 1;
             margin: 10px 0 14px;
@@ -483,7 +484,8 @@
             transition: max-height 0.35s ease, opacity 0.3s ease, padding 0.3s ease, border-color 0.3s ease;
         }
 
-        .service-card:hover .service-info {
+        .service-card:hover .service-info,
+        .service-card.active .service-info {
             max-height: 120px;
             opacity: 1;
             padding-top: 10px;
@@ -1382,6 +1384,13 @@
     initStars();
     initParticles();
     drawStars();
+
+    // Service card tap-to-expand (mobile)
+    document.querySelectorAll('.service-card').forEach(card => {
+        card.addEventListener('click', () => {
+            card.classList.toggle('active');
+        });
+    });
 
     // FAQ accordion
     document.querySelectorAll('.faq-question').forEach(q => {
