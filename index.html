@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>玄境拾光｜風水命理顧問 陽宅風水・紫微斗數・姓名學・奇門遁甲</title>
+    <title>玄境拾光｜風水命理顧問 姓名學・流年財運・風水・紫微斗數</title>
     <meta name="description" content="玄境拾光提供專業風水命理顧問服務，包含姓名學、流年財運、風水、紫微斗數、奇門遁甲等，幫助您看見人生藍圖。">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -141,22 +141,13 @@
             margin: 20px 0 40px;
         }
 
-        .section-head-center {
-            text-align: center;
-        }
-        .section-head-center .divider {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
         /* ── Hero ── */
         #hero {
             min-height: 100vh;
             background: var(--navy);
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 80px;
+            justify-content: space-between;
             padding: 120px 80px 80px 80px;
             position: relative;
             overflow: hidden;
@@ -178,18 +169,9 @@
             height: 100%;
         }
 
-        .hero-mountains {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 1;
             max-width: 540px;
             flex-shrink: 0;
         }
@@ -275,7 +257,70 @@
         #about { background: var(--cream); }
 
         .about-grid {
-            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1.6fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-photo-wrap {
+            position: relative;
+        }
+
+        .about-photo-wrap::before {
+            content: '';
+            position: absolute;
+            top: -24px; left: -24px; right: -24px; bottom: -24px;
+            border: 1px solid rgba(196,151,90,0.2);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .about-photo-wrap::after {
+            content: '';
+            position: absolute;
+            top: -12px; left: -12px; right: -12px; bottom: -12px;
+            border: 1px dashed rgba(196,151,90,0.12);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .about-photo {
+            aspect-ratio: 3/4;
+            background: var(--bg-alt);
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-photo::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+        }
+
+        .photo-placeholder {
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .photo-placeholder .icon {
+            font-size: 52px;
+            display: block;
+            margin-bottom: 12px;
+            opacity: 0.3;
+        }
+
+        .photo-placeholder p {
+            font-size: 13px;
+            letter-spacing: 1px;
+            opacity: 0.5;
         }
 
         .about-text p {
@@ -285,77 +330,9 @@
             font-size: 15px;
         }
 
-        .credentials {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 32px;
-        }
-
-        .credential-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            padding: 6px 14px;
-            border: 1px solid rgba(196,151,90,0.45);
-            border-radius: 2px;
-            font-size: 13px;
-            color: var(--gold);
-            letter-spacing: 0.5px;
-            background: rgba(196,151,90,0.06);
-        }
-
-        .credential-tag .cred-icon {
-            font-size: 14px;
-            opacity: 0.8;
-        }
-
-        .expertise-tags {
-            margin-bottom: 32px;
-        }
-
-        .expertise-label {
-            font-size: 11px;
-            letter-spacing: 1.5px;
-            color: var(--text-light);
-            margin-bottom: 10px !important;
-            text-transform: uppercase;
-            opacity: 0.7;
-        }
-
-        .expertise-category {
-            margin-bottom: 10px;
-        }
-
-        .expertise-cat-label {
-            font-size: 10px;
-            letter-spacing: 1px;
-            color: var(--gold);
-            opacity: 0.75;
-            display: block;
-            margin-bottom: 6px;
-        }
-
-        .expertise-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .expertise-tag {
-            display: inline-block;
-            padding: 4px 12px;
-            background: var(--bg-alt);
-            border: 1px solid var(--border);
-            border-radius: 2px;
-            font-size: 12px;
-            color: var(--text-light);
-            letter-spacing: 0.5px;
-        }
-
         .about-stats {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 24px;
             margin-top: 40px;
             padding-top: 40px;
@@ -383,7 +360,12 @@
         #services { background: var(--bg-alt); }
 
         .services-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
             margin-bottom: 56px;
+            flex-wrap: wrap;
+            gap: 24px;
         }
 
         .services-grid {
@@ -429,87 +411,10 @@
             font-size: 18px;
             font-weight: 700;
             color: var(--navy);
-            margin-bottom: 6px;
-        }
-
-        .service-tag {
-            display: inline-block;
-            font-size: 11px;
-            color: var(--gold);
-            border: 1px solid rgba(196,151,90,0.4);
-            padding: 2px 8px;
-            border-radius: 2px;
-            letter-spacing: 0.5px;
             margin-bottom: 10px;
         }
 
-        .service-benefits {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            max-height: 0;
-            overflow: hidden;
-            opacity: 0;
-            transition: max-height 0.35s ease, opacity 0.3s ease, margin 0.3s ease;
-        }
-
-        .service-card:hover .service-benefits,
-        .service-card.active .service-benefits {
-            max-height: 150px;
-            opacity: 1;
-            margin: 10px 0 14px;
-        }
-
-        .service-benefits li {
-            font-size: 13px;
-            color: var(--text-light);
-            padding: 3px 0 3px 18px;
-            position: relative;
-            line-height: 1.6;
-        }
-
-        .service-benefits li::before {
-            content: '✔';
-            position: absolute;
-            left: 0;
-            color: var(--gold);
-            font-size: 11px;
-            top: 4px;
-        }
-
-        .service-info {
-            max-height: 0;
-            overflow: hidden;
-            opacity: 0;
-            padding: 0;
-            margin: 0;
-            border-top: 1px solid transparent;
-            transition: max-height 0.35s ease, opacity 0.3s ease, padding 0.3s ease, border-color 0.3s ease;
-        }
-
-        .service-card:hover .service-info,
-        .service-card.active .service-info {
-            max-height: 120px;
-            opacity: 1;
-            padding-top: 10px;
-            margin-bottom: 14px;
-            border-top-color: var(--border);
-        }
-
-        .service-info p {
-            font-size: 12px;
-            color: var(--text-light);
-            line-height: 1.6;
-            margin-bottom: 4px;
-        }
-
-        .service-info p span {
-            color: var(--navy);
-            font-weight: 600;
-            margin-right: 6px;
-        }
-
-.service-desc {
+        .service-desc {
             font-size: 14px;
             color: var(--text-light);
             line-height: 1.85;
@@ -522,13 +427,10 @@
             font-size: 22px;
             font-weight: 700;
             color: var(--gold);
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
         }
 
         .service-price span {
-            font-size: 12px;
+            font-size: 13px;
             font-family: 'Noto Sans TC', sans-serif;
             font-weight: 400;
             color: var(--text-light);
@@ -545,7 +447,7 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 0;
-            margin-top: 16px;
+            margin-top: 56px;
             position: relative;
         }
 
@@ -591,17 +493,6 @@
             color: rgba(255,255,255,0.5);
             line-height: 1.75;
         }
-
-        .step-cta {
-            display: inline-block;
-            margin-top: 10px;
-            font-size: 12px;
-            color: var(--gold);
-            text-decoration: none;
-            letter-spacing: 0.5px;
-            transition: opacity 0.2s;
-        }
-        .step-cta:hover { opacity: 0.7; }
 
         /* ── Testimonials ── */
         #testimonials { background: var(--cream); }
@@ -715,27 +606,35 @@
 
         .line-btn:hover { background: #05B34D; }
 
-        .footer-handles {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
+        .contact-id {
+            color: rgba(255,255,255,0.45);
+            font-size: 13px;
+            letter-spacing: 1px;
         }
 
-        .handle-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            color: rgba(255,255,255,0.4);
+        .contact-id a {
+            color: var(--gold);
             text-decoration: none;
-            font-size: 12px;
-            letter-spacing: 0.5px;
+        }
+
+        .contact-social {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 40px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .social-link {
+            color: rgba(255,255,255,0.45);
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 1px;
             transition: color 0.2s;
         }
 
-        .handle-link:hover { color: var(--gold); }
-        .handle-link svg { flex-shrink: 0; opacity: 0.75; }
-        .handle-sep { color: rgba(255,255,255,0.2); font-size: 14px; }
+        .social-link:hover { color: var(--gold); }
 
         /* ── Footer ── */
         footer {
@@ -759,6 +658,63 @@
             letter-spacing: 1px;
         }
 
+        /* ── Floating IG Button ── */
+        .float-ig {
+            position: fixed;
+            right: 24px;
+            bottom: 32px;
+            z-index: 99;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+        }
+
+        .float-ig:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+        }
+
+        .float-ig svg { width: 26px; height: 26px; }
+
+        .float-ig-tooltip {
+            position: absolute;
+            right: 60px;
+            background: rgba(0,0,0,0.75);
+            color: white;
+            font-size: 12px;
+            padding: 5px 10px;
+            border-radius: 4px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+            letter-spacing: 1px;
+        }
+
+        .float-ig:hover .float-ig-tooltip { opacity: 1; }
+
+        /* ── Footer IG icon ── */
+        .footer-ig {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 1px;
+            transition: color 0.2s;
+        }
+
+        .footer-ig:hover { color: var(--gold); }
+
+        .footer-ig svg { width: 16px; height: 16px; }
 
         /* ── Fade-in ── */
         .fade-in {
@@ -780,16 +736,7 @@
             flex-shrink: 0;
             pointer-events: none;
             z-index: 1;
-            opacity: 0.92;
-        }
-
-        @keyframes luopan-glow-pulse {
-            0%, 100% { opacity: 0.7; }
-            50% { opacity: 1; }
-        }
-
-        #luopanGlow {
-            animation: luopan-glow-pulse 3s ease-in-out infinite;
+            opacity: 0.65;
         }
 
         @keyframes luopan-spin-cw {
@@ -813,10 +760,6 @@
         }
 
         /* ── Mobile ── */
-        @media (max-width: 960px) {
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
         @media (max-width: 768px) {
             nav { padding: 16px 20px; }
 
@@ -854,7 +797,18 @@
 
             .hero-title { letter-spacing: 6px; }
 
-            .about-stats { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-photo {
+                aspect-ratio: 1/1;
+                max-width: 280px;
+                margin: 0 auto;
+            }
+
+            .about-stats { grid-template-columns: repeat(3, 1fr); gap: 16px; }
 
             .stat-num { font-size: 26px; }
 
@@ -896,15 +850,10 @@
 <section id="hero">
     <canvas id="stars-canvas"></canvas>
     <svg id="luopan-svg" class="hero-luopan" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"></svg>
-    <svg class="hero-mountains" viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,180 L60,150 L140,165 L240,110 L340,135 L460,85 L560,115 L680,70 L780,100 L900,55 L1000,85 L1100,60 L1220,80 L1340,65 L1440,85 L1440,220 L0,220 Z" fill="rgba(12,24,16,0.25)"/>
-        <path d="M0,195 L80,165 L180,180 L300,135 L400,158 L520,118 L640,148 L760,108 L880,138 L1000,115 L1120,138 L1240,118 L1360,140 L1440,125 L1440,220 L0,220 Z" fill="rgba(10,20,14,0.40)"/>
-        <path d="M0,220 L100,190 L220,208 L340,175 L460,200 L580,168 L700,192 L820,162 L940,185 L1060,168 L1180,188 L1300,172 L1440,185 L1440,220 Z" fill="rgba(8,18,12,0.55)"/>
-    </svg>
     <div class="hero-content">
         <div class="hero-tag">✦ 風水命理顧問</div>
         <h1 class="hero-title">玄境拾光</h1>
-        <p class="hero-subtitle">陽宅風水・紫微斗數・命名改名・擇日</p>
+        <p class="hero-subtitle">姓名學・五行・流年財運・紫微斗數・奇門遁甲</p>
         <p class="hero-quote">「透過古老智慧，看見你的人生藍圖」</p>
         <div class="hero-btns">
             <a href="#services" class="btn-primary">了解服務</a>
@@ -917,61 +866,33 @@
 <section id="about">
     <div class="container">
         <div class="about-grid">
+            <div class="about-photo-wrap">
+                <div class="about-photo">
+                    <div class="photo-placeholder">
+                        <span class="icon">☯</span>
+                        <p>個人照片</p>
+                    </div>
+                </div>
+            </div>
             <div class="about-text fade-in">
                 <p class="section-label">關於我</p>
-                <h2 class="section-title">陽宅風水 × 命理，看見你的生命格局</h2>
+                <h2 class="section-title">十年鑽研，<br>用命理看見你的天賦</h2>
                 <div class="divider"></div>
-                <p>投入風水命理研究超過十年，深入鑽研陽宅風水、紫微斗數、奇門遁甲與姓名學。</p>
-                <p>師承巃羽堂陳巃羽老師，專研三元納氣流派、形家派等陽宅派別。</p>
-                <p>將多門學問融會貫通，幫助每位個案找到真正適合自己的方向。</p>
-                <p>命盤帶你看見天賦潛能、財運走向與人生課題；陽宅鑑定帶你看見住家氣場如何影響你的運勢格局。</p>
-                <p>不是預測未來，而是幫你讀懂已經存在的藍圖，讓每一個選擇更有依據。</p>
-                <p>每一次諮詢，都是讓改變真正發生的起點。</p>
-                <div class="credentials">
-                    <span class="credential-tag">
-                        <span class="cred-icon">◎</span>
-                        巃羽堂陽宅弟子
-                    </span>
-                </div>
-                <div class="expertise-tags">
-                    <p class="expertise-label">精通派別</p>
-                    <div class="expertise-category">
-                        <span class="expertise-cat-label">陽宅風水</span>
-                        <div class="expertise-list">
-                            <span class="expertise-tag">形家派</span>
-                            <span class="expertise-tag">三元納氣</span>
-                            <span class="expertise-tag">東西四命陽宅學</span>
-                            <span class="expertise-tag">紫白飛星法</span>
-                            <span class="expertise-tag">乾坤國寶</span>
-                            <span class="expertise-tag">三元玄空陽宅學</span>
-                        </div>
-                    </div>
-                    <div class="expertise-category">
-                        <span class="expertise-cat-label">命理</span>
-                        <div class="expertise-list">
-                            <span class="expertise-tag">紫微斗數</span>
-                            <span class="expertise-tag">奇門遁甲</span>
-                            <span class="expertise-tag">姓名學</span>
-                            <span class="expertise-tag">符咒</span>
-                        </div>
-                    </div>
-                    <div class="expertise-category">
-                        <span class="expertise-cat-label">擇日</span>
-                        <div class="expertise-list">
-                            <span class="expertise-tag">三合派擇日</span>
-                            <span class="expertise-tag">三元派擇日</span>
-                            <span class="expertise-tag">董公擇日</span>
-                        </div>
-                    </div>
-                </div>
+                <p>命理不是算命，而是一套看見自己的系統。投入命理研究超過十年，深入鑽研姓名學、五行生剋、紫微斗數與奇門遁甲，整合多種古老智慧，幫助每一位個案找到屬於自己的節奏與方向。</p>
+                <p>每個人生來就有獨特的生命密碼。透過排盤解析，能看見你的天賦潛能、財運走向、感情模式與人生課題——不是預測未來，而是幫你讀懂已經存在的藍圖。</p>
+                <p>相信每一次諮詢，都是一次與自己深度對話的機會。</p>
                 <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-num">10+</span>
+                        <p class="stat-label">研究年資</p>
+                    </div>
                     <div class="stat-item">
                         <span class="stat-num">500+</span>
                         <p class="stat-label">服務個案</p>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-num">13</span>
-                        <p class="stat-label">風水命理系統</p>
+                        <span class="stat-num">5</span>
+                        <p class="stat-label">命理系統</p>
                     </div>
                 </div>
             </div>
@@ -982,109 +903,50 @@
 <!-- Services -->
 <section id="services">
     <div class="container">
-        <div class="services-header section-head-center fade-in">
-            <p class="section-label">服務項目</p>
-            <h2 class="section-title">選擇適合你的命理服務</h2>
-            <div class="divider"></div>
-            <p class="section-desc">遠距服務全球皆可預約・實地堪輿請透過 LINE 洽詢範圍</p>
+        <div class="services-header fade-in">
+            <div>
+                <p class="section-label">服務項目</p>
+                <h2 class="section-title">選擇適合你的命理服務</h2>
+                <div class="divider"></div>
+            </div>
+            <p class="section-desc">每項服務均提供書面報告<br>線上諮詢，全台皆可預約</p>
         </div>
         <div class="services-grid">
             <div class="service-card fade-in">
-                <div class="service-icon">⌂</div>
-                <h3 class="service-name">遠距陽宅風水吉凶鑑定</h3>
-                <p class="service-desc">全程遠端進行，無需現場勘查。購屋前，專業評估陽宅格局吉凶，分析三元納氣布局可行性，附電子鑑定報告，全球皆可預約。</p>
-                <ul class="service-benefits">
-                    <li>提早發現潛藏問題，避免購屋後才後悔</li>
-                    <li>避開風水大凶的房子</li>
-                    <li>找出真正適合你的吉宅</li>
-                </ul>
-                <div class="service-info">
-                    <p><span>所需資料</span>建物地址、等比例平面圖、家庭基本資料</p>
-                    <p><span>適用區域</span>台灣、大陸、香港、新加坡、馬來西亞、美國、加拿大、澳洲等全球地區</p>
-                    <p><span>優惠</span>鑑定後委託規劃設計，可享鑑定費 50% 折抵</p>
-                </div>
-                <p class="service-price">NT$ 5,000 <span>二樓起每層加 NT$ 2,500</span></p>
-            </div>
-            <div class="service-card fade-in">
-                <div class="service-icon">◻</div>
-                <h3 class="service-name">遠距陽宅風水規劃設計｜住宅</h3>
-                <p class="service-desc">不受地點限制，三元納氣多派融合分析，為你規劃全宅旺氣格局。</p>
-                <ul class="service-benefits">
-                    <li>多派融合：三元納氣、紫白飛星、乾坤國寶、東西四命</li>
-                    <li>無需拆門改窗，保留原始空間</li>
-                    <li>財位、文昌位、桃花位、煞氣點逐一標示</li>
-                    <li>床位、座位、門窗距離精準至公分</li>
-                    <li>後續問題一對一親自回覆</li>
-                </ul>
-                <div class="service-info">
-                    <p><span>適用對象</span>預售屋、新宅裝修前、中古屋調整、房屋重建規劃皆適用</p>
-                    <p><span>適用區域</span>台灣、大陸、香港、新加坡、馬來西亞、美國、加拿大、澳洲等全球地區</p>
-                </div>
-                <p class="service-price">NT$ 7,500 <span>二樓起每層加 NT$ 3,500</span></p>
-            </div>
-            <div class="service-card fade-in">
-                <div class="service-icon">◫</div>
-                <h3 class="service-name">遠距陽宅風水規劃設計｜公司工廠</h3>
-                <p class="service-desc">不受地點限制，針對辦公室、廠房進行三元納氣多派融合分析，量身規劃旺氣格局。</p>
-                <ul class="service-benefits">
-                    <li>多派融合：三元納氣、紫白飛星、乾坤國寶、東西四命</li>
-                    <li>無需拆門改窗，保留原始空間</li>
-                    <li>財位、文昌位、桃花位、煞氣點逐一標示</li>
-                    <li>座位、門窗、動線方位精準至公分</li>
-                    <li>後續問題一對一親自回覆</li>
-                </ul>
-                <div class="service-info">
-                    <p><span>適用對象</span>辦公室、店面、工廠、倉庫等商業空間</p>
-                    <p><span>適用區域</span>台灣、大陸、香港、新加坡、馬來西亞、美國、加拿大、澳洲等全球地區</p>
-                </div>
-                <p class="service-price">費用面議 <span>視空間大小及複雜度</span></p>
-            </div>
-            <div class="service-card fade-in">
-                <div class="service-icon">⊞</div>
-                <h3 class="service-name">實地陽宅風水規劃設計</h3>
-                <p class="service-desc">親自實地勘察規劃，量身打造合宜風水環境布局。科學與傳統兼備，提供永久免費諮詢，成為你長期信賴的陽宅顧問。</p>
-                <ul class="service-benefits">
-                    <li>三元納氣多派融合：紫白飛星、乾坤國寶、東西四命</li>
-                    <li>外局規劃：門路、嶠星、水神真機等技法強化收氣引氣</li>
-                    <li>零正催照水法，強化財官雙運</li>
-                    <li>室內旺氣布局依家庭成員八字命格量身打造</li>
-                    <li>高精度智能電子羅盤，細分每度數，旺衰一目了然</li>
-                    <li>無需拆門改窗，永久免費諮詢服務</li>
-                </ul>
-                <div class="service-info">
-                    <p><span>適用對象</span>一般住宅、店面、企業、公司工廠</p>
-                </div>
-                <p class="service-price">費用面議 <span>視空間大小及複雜度</span></p>
-            </div>
-            <div class="service-card fade-in">
                 <div class="service-icon">☰</div>
-                <h3 class="service-name">新生兒命名｜成人改名</h3>
-                <p class="service-desc">名字是每天接觸的語言符號，合適的名字讓命格潛能更順利發揮。三才八格、生肖五行深度解析，搭配紫微命盤交叉確認。</p>
-                <ul class="service-benefits">
-                    <li>合適的名字與命格相符，五行平衡，形音義吉祥</li>
-                    <li>有助提升自信、形象、人際感受與心理能量</li>
-                    <li>不適名字可能在人際、事業、心理層面形成無形阻力</li>
-                </ul>
-                <div class="service-info">
-                    <p><span>新生兒命名</span>嬰兒姓名、性別、生辰、喜忌用字</p>
-                    <p><span>成人改名</span>本人姓名、性別、生辰</p>
-                </div>
-                <p class="service-price">NT$ 2,600 <span>每次</span></p>
+                <h3 class="service-name">姓名學排盤</h3>
+                <p class="service-desc">深度分析姓名五行格局、天地人三才、五格數理，找出名字對運勢的實際影響，並提供改名建議方向。</p>
+                <p class="service-price">NT$ 2,500 <span>／次</span></p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">☽</div>
+                <h3 class="service-name">流年財運報告</h3>
+                <p class="service-desc">結合八字五行與飛星，分析當年財運走勢、投資時機與財務決策吉凶，提前掌握年度節奏。</p>
+                <p class="service-price">NT$ 3,500 <span>／份</span></p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">⌂</div>
+                <h3 class="service-name">風水諮詢</h3>
+                <p class="service-desc">居家或辦公室磁場評估，針對格局、方位與擺設提供調整建議，改善環境氣場，提升整體運勢。</p>
+                <p class="service-price">NT$ 5,000 <span>／次</span></p>
             </div>
             <div class="service-card fade-in">
                 <div class="service-icon">✦</div>
-                <h3 class="service-name">紫微斗數｜線上諮詢</h3>
-                <p class="service-desc">透過紫微斗數解析個人命盤，系統化了解學業、事業、婚姻、財運走向。不只看命，更給你量身訂製的人生建議。</p>
-                <ul class="service-benefits">
-                    <li>精準時辰校正，排除登記誤差與太陽時差，找出真實命盤</li>
-                    <li>格局 + 單星整合分析，全面解讀命盤結構</li>
-                    <li>三個大限 + 三個流年吉凶推演，掌握人生黃金關鍵年</li>
-                    <li>根據命盤提供貼切人生建言，走出最適合自己的路徑</li>
-                </ul>
-                <div class="service-info">
-                    <p><span>準備資料</span>姓名、性別、婚姻狀況、出生時間（幾點幾分）、出生地、想詢問的問題</p>
-                </div>
-                <p class="service-price">NT$ 2,600 <span>每小時</span></p>
+                <h3 class="service-name">紫微斗數</h3>
+                <p class="service-desc">解析個人命盤十二宮位，深入了解性格特質、事業財運走向、感情婚姻模式與人生整體格局。</p>
+                <p class="service-price">NT$ 4,500 <span>／次</span></p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">◈</div>
+                <h3 class="service-name">奇門遁甲</h3>
+                <p class="service-desc">擇日、擇方位，分析事業決策與出行方向，把握吉時吉方的天地人合一之力，提升行動勝率。</p>
+                <p class="service-price">NT$ 4,000 <span>／次</span></p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">⊕</div>
+                <h3 class="service-name">綜合命理諮詢</h3>
+                <p class="service-desc">整合姓名學、紫微、奇門等多種工具，全面解析人生藍圖，適合想深度了解自己全方位格局的個案。</p>
+                <p class="service-price">NT$ 6,800 <span>／次</span></p>
             </div>
         </div>
     </div>
@@ -1093,37 +955,45 @@
 <!-- Process -->
 <section id="process">
     <div class="container">
-        <div class="section-head-center">
-            <p class="section-label">諮詢流程</p>
-            <h2 class="section-title">四個步驟，開始你的命理之旅</h2>
-            <div class="divider"></div>
-        </div>
+        <p class="section-label">諮詢流程</p>
+        <h2 class="section-title">四個步驟，開始你的命理之旅</h2>
         <div class="process-steps">
             <div class="process-step fade-in">
                 <div class="step-num">一</div>
                 <h4 class="step-title">加入 LINE 聯絡</h4>
-                <p class="step-desc">搜尋 LINE ID @023ekrej 加入好友，告知想預約的服務項目</p>
-                <a href="#contact" class="step-cta">點這邊前往預約 →</a>
+                <p class="step-desc">掃描 QR Code 或搜尋 @023ekrej，告知欲預約的服務項目</p>
             </div>
             <div class="process-step fade-in">
                 <div class="step-num">二</div>
                 <h4 class="step-title">提供基本資料</h4>
-                <p class="step-desc">依服務類型提供出生年月日時、姓名，或建物地址與平面圖等必要資訊</p>
+                <p class="step-desc">依服務類型提供出生年月日時、姓名等必要排盤資訊</p>
             </div>
             <div class="process-step fade-in">
                 <div class="step-num">三</div>
-                <h4 class="step-title">深度分析規劃</h4>
-                <p class="step-desc">確認付款並資料齊全後，5–7 個工作天內完成分析，陽宅服務另附書面報告</p>
+                <h4 class="step-title">深度排盤分析</h4>
+                <p class="step-desc">完成付款後，3–5 個工作天內完成排盤與書面解析報告</p>
             </div>
             <div class="process-step fade-in">
                 <div class="step-num">四</div>
                 <h4 class="step-title">報告與追蹤</h4>
-                <p class="step-desc">交付書面報告並安排線上說明，後續提供追蹤諮詢</p>
+                <p class="step-desc">交付書面報告並安排線上說明，後續提供 30 天追蹤諮詢</p>
             </div>
         </div>
     </div>
 </section>
 
+<!-- Testimonials -->
+<section id="testimonials">
+    <div class="container">
+        <p class="section-label">個案回饋</p>
+        <h2 class="section-title">他們說的話</h2>
+        <div class="divider"></div>
+        <div class="testimonials-placeholder">
+            <p>個案見證文字即將上線</p>
+            <p class="coming">Coming Soon</p>
+        </div>
+    </div>
+</section>
 
 <!-- FAQ -->
 <section id="faq">
@@ -1140,7 +1010,7 @@
                     <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-answer">
-                    依服務類型而定。命理諮詢（姓名學、紫微斗數）需提供姓名、出生年月日與時辰，越精確越好；風水服務需提供建物地址與等比例平面圖。各服務項目中有詳細列出所需資料。
+                    依服務類型不同，基本上需要提供姓名、出生年月日（國曆）以及出生時辰。姓名學以姓名為主；紫微斗數、流年財運則需要完整的出生時辰，越精確越好。
                 </div>
             </div>
             <div class="faq-item">
@@ -1149,7 +1019,7 @@
                     <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-answer">
-                    線上服務以 LINE 視訊或語音進行，方便全台灣及海外客戶預約。實地陽宅堪輿可現場勘察，當場解疑形煞影響，報告完成後另安排線上說明。詳細安排請透過 LINE 聯絡。
+                    目前主要以線上方式進行（LINE 視訊或語音），方便全台灣的個案都能預約。如需面對面諮詢，請透過 LINE 聯絡進一步討論。
                 </div>
             </div>
             <div class="faq-item">
@@ -1158,7 +1028,7 @@
                     <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-answer">
-                    確認付款後，一般排程為 5–7 個工作天完成報告，並安排線上說明。旺季或特殊節日前後可能稍長，會提前告知。
+                    確認付款後，一般排程為 3–5 個工作天完成報告，並安排線上說明時間。旺季或特殊節日前後可能稍長，會提前告知。
                 </div>
             </div>
             <div class="faq-item">
@@ -1167,25 +1037,16 @@
                     <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-answer">
-                    常見主題包含：購屋前陽宅鑑定、居家或辦公室風水調整、新生兒命名、成人改名、命盤解析、事業財運分析、感情婚姻、創業時機等。歡迎直接告知最想了解的面向，我會建議最適合的服務項目。
+                    常見主題包含：事業轉換、財運分析、感情婚姻、創業時機、子女教育、搬遷擇日等。歡迎直接告知最想了解的面向，再建議最適合的服務項目。
                 </div>
             </div>
             <div class="faq-item">
                 <div class="faq-question">
-                    台灣客戶付款方式有哪些？
+                    付款方式有哪些？
                     <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-answer">
-                    接受銀行轉帳、LINE Pay。確認服務項目後，會於官方 LINE 提供匯款資訊，完成付款後即開始服務。
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">
-                    海外客戶如何付款？
-                    <span class="faq-icon">+</span>
-                </div>
-                <div class="faq-answer">
-                    海外客戶可透過 PayPal 付款。確認服務項目後，會於官方 LINE 提供付款連結，完成付款後即開始排程。
+                    目前接受銀行轉帳、LINE Pay 及街口支付。確認服務項目後，會於 LINE 上提供匯款資訊，完成付款後即開始排盤。
                 </div>
             </div>
         </div>
@@ -1197,7 +1058,7 @@
     <div class="container">
         <div class="contact-box">
             <p class="section-label">預約諮詢</p>
-            <h2 class="section-title">準備好看見你的生命藍圖了嗎？</h2>
+            <h2 class="section-title">準備好看見<br>你的生命藍圖了嗎？</h2>
             <div class="divider"></div>
             <p class="contact-desc">透過 LINE 聯絡，告知想了解的服務項目，我會盡快回覆並安排後續流程。</p>
             <a href="https://line.me/R/ti/p/@023ekrej" class="line-btn" target="_blank">
@@ -1206,9 +1067,26 @@
                 </svg>
                 加入 LINE 預約諮詢
             </a>
+            <p class="contact-id">LINE ID：<a href="https://line.me/R/ti/p/@023ekrej" target="_blank">@023ekrej</a></p>
+            <div class="contact-social">
+                <a href="https://www.instagram.com/mysticfeather9" class="social-link" target="_blank">
+                    Instagram @mysticfeather9
+                </a>
+                <a href="https://www.mysticfeather9.com" class="social-link">
+                    mysticfeather9.com
+                </a>
+            </div>
         </div>
     </div>
 </section>
+
+<!-- Floating IG Button -->
+<a href="https://www.instagram.com/mysticfeather9" class="float-ig" target="_blank">
+    <span class="float-ig-tooltip">@mysticfeather9</span>
+    <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+    </svg>
+</a>
 
 <!-- Footer -->
 <footer>
@@ -1216,24 +1094,22 @@
         <img src="images/logo.png" alt="玄境拾光">
     </div>
     <p class="footer-copy">© 2026 玄境拾光 MysticFeather9. All rights reserved.</p>
-    <div class="footer-handles">
-        <a href="https://line.me/R/ti/p/@023ekrej" class="handle-link" target="_blank">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-            @023ekrej
-        </a>
-        <span class="handle-sep">・</span>
-        <a href="https://www.instagram.com/mysticfeather9" class="handle-link" target="_blank">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            @mysticfeather9
-        </a>
-    </div>
+    <a href="https://www.instagram.com/mysticfeather9" class="footer-ig" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+        @mysticfeather9
+    </a>
 </footer>
 
 <script>
-    // Stars + particles animation
+    history.scrollRestoration = 'manual';
+    window.scrollTo(0, 0);
+
+    // Stars animation
     const canvas = document.getElementById('stars-canvas');
     const ctx = canvas.getContext('2d');
-    let stars = [], particles = [];
+    let stars = [];
 
     function resizeCanvas() {
         canvas.width = canvas.offsetWidth;
@@ -1253,36 +1129,9 @@
         }
     }
 
-    function createParticle() {
-        return {
-            x: Math.random() * canvas.width,
-            y: canvas.height * (0.6 + Math.random() * 0.4),
-            r: Math.random() * 1.8 + 0.5,
-            vy: -(Math.random() * 0.5 + 0.2),
-            vx: (Math.random() - 0.5) * 0.3,
-            alpha: 0,
-            maxAlpha: Math.random() * 0.55 + 0.15,
-            life: 0,
-            maxLife: Math.random() * 220 + 120,
-            phase: Math.random() * Math.PI * 2
-        };
-    }
-
-    function initParticles() {
-        particles = [];
-        for (let i = 0; i < 45; i++) {
-            const p = createParticle();
-            p.life = Math.floor(Math.random() * p.maxLife);
-            p.y -= p.life * Math.abs(p.vy);
-            particles.push(p);
-        }
-    }
-
     function drawStars() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         const t = Date.now() * 0.001;
-
-        // Stars
         stars.forEach(s => {
             const alpha = s.baseAlpha * (0.65 + 0.35 * Math.sin(t * s.speed));
             ctx.beginPath();
@@ -1290,43 +1139,13 @@
             ctx.fillStyle = `rgba(196,151,90,${alpha})`;
             ctx.fill();
         });
-
-        // Rising particles
-        particles.forEach((p, i) => {
-            p.life++;
-            p.y += p.vy;
-            p.x += p.vx + Math.sin(t * 0.8 + p.phase) * 0.15;
-
-            const progress = p.life / p.maxLife;
-            p.alpha = progress < 0.2
-                ? p.maxAlpha * (progress / 0.2)
-                : p.maxAlpha * (1 - (progress - 0.2) / 0.8);
-
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(212,170,100,${Math.max(0, p.alpha)})`;
-            ctx.fill();
-
-            if (p.life >= p.maxLife || p.y < 0) {
-                particles[i] = createParticle();
-            }
-        });
-
         requestAnimationFrame(drawStars);
     }
 
-    window.addEventListener('resize', () => { resizeCanvas(); initStars(); initParticles(); });
+    window.addEventListener('resize', () => { resizeCanvas(); initStars(); });
     resizeCanvas();
     initStars();
-    initParticles();
     drawStars();
-
-    // Service card tap-to-expand (mobile)
-    document.querySelectorAll('.service-card').forEach(card => {
-        card.addEventListener('click', () => {
-            card.classList.toggle('active');
-        });
-    });
 
     // FAQ accordion
     document.querySelectorAll('.faq-question').forEach(q => {
@@ -1397,13 +1216,13 @@
             parent.appendChild(t);
         }
 
-        // 外環（順時針慢轉）：24山刻度（幾何圖形）
+        // 外環（順時針慢轉）：24山 + 八卦
         const outerG = mkEl('g', { class: 'luopan-outer-ring' });
         svg.appendChild(outerG);
 
-        circ(outerG, 245, G(0.8), 1.5);
-        circ(outerG, 218, G(0.4), 0.8);
-        circ(outerG, 192, G(0.6), 1);
+        circ(outerG, 245, G(0.45), 1);
+        circ(outerG, 218, G(0.2), 0.5);
+        circ(outerG, 192, G(0.3), 0.8);
 
         // 24 tick marks
         for (let i = 0; i < 24; i++) {
@@ -1414,15 +1233,12 @@
                 y1: cy - (major ? 226 : 232) * Math.cos(angle),
                 x2: cx + 245 * Math.sin(angle),
                 y2: cy - 245 * Math.cos(angle),
-                stroke: G(major ? 0.9 : 0.5),
-                'stroke-width': major ? 1.8 : 0.8
+                stroke: G(major ? 0.55 : 0.25),
+                'stroke-width': major ? 1.2 : 0.5
             }));
         }
 
-        // 後天八卦文字（靜止覆蓋層，不隨外環轉動，避免字歪）
-        const outerTextG = mkEl('g', {});
-        svg.appendChild(outerTextG);
-
+        // 後天八卦（Later Heaven Bagua）
         const bagua = [
             { sym: '☵', name: '坎' }, { sym: '☶', name: '艮' },
             { sym: '☳', name: '震' }, { sym: '☴', name: '巽' },
@@ -1434,8 +1250,8 @@
             const r = 205;
             const x = cx + r * Math.sin(angle);
             const y = cy - r * Math.cos(angle);
-            txt(outerTextG, x, y - 9, b.sym, 17, 0.95);
-            txt(outerTextG, x, y + 9, b.name, 11, 0.8);
+            txt(outerG, x, y - 9, b.sym, 15, 0.78);
+            txt(outerG, x, y + 9, b.name, 10, 0.52);
         });
 
         // 中環（靜止）：五行
@@ -1443,7 +1259,7 @@
         svg.appendChild(midG);
 
         [162, 132, 102].forEach((r, i) => {
-            circ(midG, r, G([0.55, 0.4, 0.55][i]), 1);
+            circ(midG, r, G([0.25, 0.2, 0.25][i]), 0.8);
         });
 
         for (let i = 0; i < 8; i++) {
@@ -1451,7 +1267,7 @@
             midG.appendChild(mkEl('line', {
                 x1: cx + 102 * Math.sin(angle), y1: cy - 102 * Math.cos(angle),
                 x2: cx + 162 * Math.sin(angle), y2: cy - 162 * Math.cos(angle),
-                stroke: G(0.35), 'stroke-width': 0.8
+                stroke: G(0.15), 'stroke-width': 0.5
             }));
         }
 
@@ -1460,39 +1276,28 @@
             { name: '火', a: 180 }, { name: '金', a: 270 }
         ].forEach(w => {
             const a = w.a * Math.PI / 180;
-            txt(midG, cx + 120 * Math.sin(a), cy - 120 * Math.cos(a), w.name, 14, 0.7);
+            txt(midG, cx + 120 * Math.sin(a), cy - 120 * Math.cos(a), w.name, 13, 0.38);
         });
-        txt(midG, cx, cy + 2, '土', 14, 0.65);
+        txt(midG, cx, cy + 2, '土', 13, 0.32);
 
         // 內環（逆時針慢轉）
         const innerG = mkEl('g', { class: 'luopan-inner-ring' });
         svg.appendChild(innerG);
 
-        circ(innerG, 74, G(0.7), 1.5);
-        circ(innerG, 54, G(0.5), 1);
+        circ(innerG, 74, G(0.35), 1);
+        circ(innerG, 54, G(0.25), 0.8);
 
         for (let i = 0; i < 8; i++) {
             const angle = i * 45 * Math.PI / 180;
             innerG.appendChild(mkEl('line', {
                 x1: cx + 54 * Math.sin(angle), y1: cy - 54 * Math.cos(angle),
                 x2: cx + 74 * Math.sin(angle), y2: cy - 74 * Math.cos(angle),
-                stroke: G(0.7), 'stroke-width': 1.2
+                stroke: G(0.4), 'stroke-width': 0.8
             }));
         }
 
-        // 中心光暈
-        const defs = mkEl('defs', {});
-        const glow = mkEl('radialGradient', { id: 'luopanGlow', cx: '50%', cy: '50%', r: '50%' });
-        const s1 = mkEl('stop', { offset: '0%' }); s1.setAttribute('stop-color', 'rgba(212,170,100,0.55)');
-        const s2 = mkEl('stop', { offset: '40%' }); s2.setAttribute('stop-color', 'rgba(196,151,90,0.18)');
-        const s3 = mkEl('stop', { offset: '100%' }); s3.setAttribute('stop-color', 'rgba(196,151,90,0)');
-        glow.appendChild(s1); glow.appendChild(s2); glow.appendChild(s3);
-        defs.appendChild(glow);
-        svg.insertBefore(defs, svg.firstChild);
-
-        innerG.appendChild(mkEl('circle', { cx, cy, r: 48, fill: 'url(#luopanGlow)' }));
-        innerG.appendChild(mkEl('circle', { cx, cy, r: 9, fill: G(0.2), stroke: G(0.85), 'stroke-width': 1.5 }));
-        innerG.appendChild(mkEl('circle', { cx, cy, r: 3, fill: G(0.9) }));
+        innerG.appendChild(mkEl('circle', { cx, cy, r: 9, fill: G(0.12), stroke: G(0.55), 'stroke-width': 1 }));
+        innerG.appendChild(mkEl('circle', { cx, cy, r: 3, fill: G(0.6) }));
     }
 
     createLuopan();
