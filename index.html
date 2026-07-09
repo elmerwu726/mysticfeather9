@@ -272,14 +272,29 @@
         }
 
         /* ── About ── */
-        #about { background: var(--cream); }
+        #about {
+            background: var(--navy);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #about::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 85% 15%, rgba(196,151,90,0.08) 0%, transparent 55%);
+        }
+
+        #about .section-title { color: var(--white); }
 
         .about-grid {
             width: 100%;
+            position: relative;
+            z-index: 1;
         }
 
         .about-text p {
-            color: var(--text-light);
+            color: rgba(255,255,255,0.65);
             margin-bottom: 20px;
             line-height: 1.95;
             font-size: 15px;
@@ -317,7 +332,7 @@
         .expertise-label {
             font-size: 11px;
             letter-spacing: 1.5px;
-            color: var(--text-light);
+            color: rgba(255,255,255,0.55);
             margin-bottom: 10px !important;
             text-transform: uppercase;
             opacity: 0.7;
@@ -345,11 +360,11 @@
         .expertise-tag {
             display: inline-block;
             padding: 4px 12px;
-            background: var(--bg-alt);
-            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.18);
             border-radius: 2px;
             font-size: 12px;
-            color: var(--text-light);
+            color: rgba(255,255,255,0.75);
             letter-spacing: 0.5px;
         }
 
@@ -359,7 +374,7 @@
             gap: 24px;
             margin-top: 40px;
             padding-top: 40px;
-            border-top: 1px solid var(--border);
+            border-top: 1px solid rgba(255,255,255,0.15);
         }
 
         .stat-item { text-align: center; }
@@ -368,13 +383,13 @@
             font-family: 'Noto Serif TC', serif;
             font-size: 34px;
             font-weight: 700;
-            color: var(--navy);
+            color: var(--gold-light);
             display: block;
         }
 
         .stat-label {
             font-size: 12px;
-            color: var(--text-light);
+            color: rgba(255,255,255,0.55);
             letter-spacing: 1px;
             margin-top: 4px;
         }
@@ -416,11 +431,13 @@
             width: 50px;
             height: 50px;
             background: rgba(196,151,90,0.1);
+            border: 1px solid rgba(196,151,90,0.3);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 22px;
+            color: var(--gold);
             margin-bottom: 20px;
         }
 
@@ -1006,7 +1023,7 @@
                 <p class="service-price">NT$ 5,000 <span>二樓起每層加 NT$ 2,500</span></p>
             </div>
             <div class="service-card fade-in">
-                <div class="service-icon">◻</div>
+                <div class="service-icon">☷</div>
                 <h3 class="service-name">遠距陽宅風水規劃設計｜住宅</h3>
                 <p class="service-desc">不受地點限制，三元納氣多派融合分析，為你規劃全宅旺氣格局。</p>
                 <ul class="service-benefits">
@@ -1023,7 +1040,7 @@
                 <p class="service-price">NT$ 7,500 <span>二樓起每層加 NT$ 3,500</span></p>
             </div>
             <div class="service-card fade-in">
-                <div class="service-icon">◫</div>
+                <div class="service-icon">☶</div>
                 <h3 class="service-name">遠距陽宅風水規劃設計｜公司工廠</h3>
                 <p class="service-desc">不受地點限制，針對辦公室、廠房進行三元納氣多派融合分析，量身規劃旺氣格局。</p>
                 <ul class="service-benefits">
@@ -1040,7 +1057,7 @@
                 <p class="service-price">費用面議 <span>視空間大小及複雜度</span></p>
             </div>
             <div class="service-card fade-in">
-                <div class="service-icon">⊞</div>
+                <div class="service-icon">☵</div>
                 <h3 class="service-name">實地陽宅風水規劃設計</h3>
                 <p class="service-desc">親自實地勘察規劃，量身打造合宜風水環境布局。科學與傳統兼備，提供永久免費諮詢，成為你長期信賴的陽宅顧問。</p>
                 <ul class="service-benefits">
